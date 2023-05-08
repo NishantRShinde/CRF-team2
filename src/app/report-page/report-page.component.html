@@ -1,0 +1,43 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+<div class="page-header">
+    <div>
+        <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()" size="18px" />
+    </div>
+    <div class="page-header-icons-container">
+        <button type="button" class="icon-button" [disabled]="undoIconDisable" style="transform: scaleX(-1)"
+            (click)="undoClick()">
+            <i class="fa fa-share"></i>
+        </button>
+        <button type="button" class="icon-button" [disabled]="redoIconDisable" (click)="redoClick()">
+            <i class="fa fa-share"></i>
+        </button>
+        <span class="vertical-line"></span>
+        <button type="button" class="icon-button" [disabled]="downloadIconDisable">
+            <i class="fa fa-download"></i>
+        </button>
+        <button type="button" class="icon-button" [disabled]="saveIconDisable" (click)="saveReportTitle()">
+            <i class="fa fa-print"></i>
+        </button>
+        <span class="vertical-line"></span>
+        <button type="button" class="icon-button" [disabled]="addcardIconDisable">
+            <i class="fa fa-plus-circle"></i>
+        </button>
+        <button type="button" class="icon-button" [disabled]="moreIconDisable" (blur)="headerMore = false"
+            (click)="headerMore = !headerMore">
+            <i class="fa fa-ellipsis-h"></i>
+
+        </button>
+    </div>
+    <div *ngIf="headerMore" class="more-container">
+        <div *ngFor="let a of headerMoreOptions">
+            <div class="icon">
+                <span class="symbol">
+                    <i class="{{ a.class }}"></i>
+                </span>
+                <span>{{ a.value }}</span>
+            </div>
+        </div>
+    </div>
+</div>

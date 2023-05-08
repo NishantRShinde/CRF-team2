@@ -1,0 +1,99 @@
+.page-header {
+  margin: 10px 12px;
+  display: flex;
+  justify-content: space-between;
+
+  &-title {
+    outline: none;
+    border: none;
+    font-size: 24px;
+    font-weight: 600;
+    padding-left: 10px;
+    border-bottom: 1.5px solid grey;
+
+    &:hover {
+      outline: none;
+      border: none;
+      border-bottom: 1.5px solid blue;
+    }
+  }
+
+  &-icons-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    margin-right: 15px;
+  }
+
+  .vertical-line {
+    border-left: 1px solid black;
+    margin-bottom: 0px;
+    margin-left: 15px;
+    margin-right: 15px;
+    height: 27px;
+    opacity: 0.2;
+  }
+
+}
+
+.icon-button {
+  background-color: transparent;
+  margin: 0px 3px;
+  user-select: none;
+  text-align: center;
+  font-size: 15px;
+  border: none;
+  height: 26px;
+  width: 26px;
+  padding: 5px;
+  transition-duration: 0.3s;
+  opacity: 0.75;
+
+  &:not(:disabled):hover {
+    color: red;
+    height: 26px;
+    width: 26px;
+    background-color: gray;
+    border-radius: 3px;
+    cursor: pointer;
+    opacity: 0.75;
+  }
+}
+
+.more-container {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  position: fixed;
+  right: 30px;
+  margin-top: 32px;
+  user-select: none;
+  background-color: white;
+  z-index: 9999;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+
+  .icon {
+    padding: 10px 10px;
+    font-size: small;
+    width: 130px;
+
+    &:hover {
+      background-color: rgb(242, 242, 242);
+    }
+
+    .symbol {
+      padding: 0px 10px 0px 3px;
+    }
+  }
+
+  .chart-icon {
+    padding: 11px 10px;
+    width: 84.5%;
+
+    .chart-symbol {
+      padding-right: 13px;
+    }
+  }
+}
