@@ -1,1 +1,84 @@
-<p>dataset-selector works!</p>
+<div class="page">
+    <div class="bigcontainer">
+        <mat-icon *ngIf="currentPanel===Panel.Dataset || currentPanel===Panel.Dataview"
+            class="back" (click)="onBack()"></mat-icon>
+        <div class="head" [ngStyle]="{ 'padding-left': currentPanel===Panel.SourceType? '5%':'14%' }">
+            {{heading}}
+        </div>
+        <mat-icon class="cross" (click)="closeDatasetSelector()"></mat-icon>
+
+        <p *ngIf="currentPanel===Panel.Dataset || currentPanel===Panel.Dataview" class="context_5">
+            Choose a dataset</p>
+            <input *ngIf="currentPanel===Panel.Dataset || currentPanel===Panel.Dataview" type="text"
+            data-cy="input-search-asset" id="search" name="searchText" class="search-bar"
+            [(ngModel)]="searchText" (input)="filterData()">
+        
+        <mat-icon *ngIf="currentPanel===Panel.Dataset || currentPanel===Panel.Dataview"
+            class="icon_5"></mat-icon>
+
+        <div class="scroll" [ngStyle]="{ 'height': currentPanel===Panel.SourceType? '70%':'45%' }">
+            <div class="boxes" *ngFor="let i of panel"
+                [ngStyle]="{ 'height': currentPanel===Panel.SourceType? '28%':currentPanel===Panel.Dataview? '37%': '15%', 'padding-left':currentPanel===Panel.Dataset? '4%': '0px',
+                'margin-right':currentPanel===Panel.Dataview? '20px':'3px','align-items':currentPanel===Panel.SourceType || currentPanel===Panel.Dataset? 'center':'top' }">
+
+                <div *ngIf="currentPanel===Panel.Dataview"
+                    [ngStyle]="{ 'height': '80%', 'padding-left': '0%' }">
+                </div>
+
+                <div *ngIf="currentPanel===Panel.SourceType" style="width: 15%; padding-left: 2%;">
+                    <mat-icon class={{i.icon}}></mat-icon>
+                </div>
+
+                <div class="content_1">
+                    <div class="content_2">
+
+                        <ng-container>
+                            <span [ngClass]="{'content_3': currentPanel===Panel.SourceType, 'content_6': currentPanel===Panel.Dataset,
+                                'content_9': currentPanel===Panel.Dataview}">
+                                {{i.title}}
+                            </span>
+                        </ng-container>
+
+                        <br *ngIf="currentPanel===Panel.SourceType">
+                        <span *ngIf="currentPanel===Panel.SourceType" class="content_7">
+                            {{i.description}}
+                        </span>
+                    </div>
+                </div>
+
+                <div class="checkbox_5" 
+                    [ngStyle]="{'align-self': currentPanel===Panel.SourceType? 'last baseline':'none', 'padding-bottom': currentPanel===Panel.SourceType? '15px':'none'}">
+                    <input type="{{currentPanel===Panel.Dataview? 'radio':'checkbox'}}" name="option1"
+                        [value]="i.title" class="checkbox1" (click)="checkboxSelector(i.title)">
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="!(currentPanel===Panel.SourceType)" class="default">
+            <div class="checkbox_1">
+                <input type="checkbox" class="checkbox2">
+                <label for="option1">Save as Default</label>
+            </div>
+        </div>
+
+        <div class="foot_container" [ngStyle]="{ 'height': currentPanel===Panel.SourceType? '17%':'10%',}">
+            <div class="foot_container1"></div>
+            <div class="foot_container2">
+                <div class="foot_container3"></div>
+                <div><button class="cancel" (click)="closeDatasetSelector()">Cancel</button>
+                </div>
+                <div *ngIf="!(currentPanel===Panel.Dataview)"><button class="next"
+                        [disabled]="!isAtLeastOneCheckboxSelected" (click)="onNext()"
+                        [style.color]="isAtLeastOneCheckboxSelected ? 'White' : 'gray'  "
+                        [style.background]="isAtLeastOneCheckboxSelected ? 'blue' : '#bbccdd'  ">Next</button>
+                </div>
+                <div *ngIf="currentPanel===Panel.Dataview"><button class="apply"
+                        [disabled]="!isAtLeastOneCheckboxSelected" (click)="applydataset()"
+                        [style.color]="isAtLeastOneCheckboxSelected ? 'White' : 'gray'  "
+                        [style.background]="isAtLeastOneCheckboxSelected ? 'blue' : '#bbccdd' ">Apply
+                        Dataset</button>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+</div> 

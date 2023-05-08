@@ -1,0 +1,78 @@
+{
+    "panels_1": [
+        {
+            "title": "Omnishopper 2.0 panel",
+            "description": "Broad, trended analytics of an individual to and shopper purchasing behavior in online and in store channels.",
+            "icon": "icon3"
+        },
+        {
+            "title": "Retail Measurement",
+            "description": "Cross-channel and granular performance tracking of in-store, point-of-sale data.",
+            "icon": "icon"
+        },
+        {
+            "title": "Homescan panel",
+            "description": "Broad, trended analytics of an individual to  purchasing behaviour in entire and in store",
+            "icon": "icon2"        },
+        {
+            "title": "Omnishopper panel",
+            "description": "Broad, trended analytics of an individual to  behavior in online and in store channels.",
+            "icon": "icon2",
+            "checkboxName": "checkbox1"
+        },
+        {
+            "title": "Omnishopper panel",
+            "description": "Broad, trended analytics of individual shopper behavior in online and in store channels.",
+            "icon": "icon",
+            "checkboxName": "checkbox1"
+        },
+        {
+            "title": "Homescan panel",
+            "description": "Broad, trended analytics of an individual to  individual shopper purchasing behaviour in entire and in store",
+            "icon": "icon3"        },
+        {
+            "title": "Retail Measurement",
+            "description": "Cross-channel and granular performance track of in-store, point-of-sale data.",
+            "icon": "icon2"        },
+        {
+            "title": "Homescan panel",
+            "description": "Broad, trended analytics of an individual to shopper purchasing behaviour in entire and in store",
+            "icon": "icon3"        }
+    ],
+
+    "panels_2": [
+        {
+            "title": "AUS APAC Dataset"        
+        },
+        {
+            "title": "Abhay Test Dataset"        
+        },
+        {
+            "title": "SYNDICATED US"
+        },
+        {
+            "title": "Total Pet Care"
+        },
+        {
+            "title": "Omnishopper panel" 
+            
+        },
+        {
+            "title": "US SCJohnson - Home Cleaning"
+        },
+        {
+            "title": "Retail Measurement"  
+        },
+        {
+            "title": "Homescan panel" 
+        }
+    ],
+    "panels_3":[
+        {
+            "title": "Nielsen US RMS OnDemand Syndicated.." 
+        },
+        {
+            "title": "97210-RB_RULE"  
+        }
+    ]
+}
