@@ -1,1 +1,9 @@
-<p>data-summary works!</p>
+
+<div id="main" class="div1"> 
+  <div *ngFor="let item of keys()" class="inline">&nbsp; 
+    {{ content[item][0] }} <a class="openbtn"><strong *ngIf="content[item][1].length === 1; else elseBlock"> 
+        {{ content[item][1][0] }}</strong>
+      <ng-template #elseBlock> <strong> {{content[item][1].length}} {{item}} </strong></ng-template></a> 
+  </div> 
+  <br><br> 
+</div> 

@@ -1,0 +1,23 @@
+<ul>
+    <div class="left-side">
+        <li routerLink="/home"><img class="niq-logo" src="../../assets/images/brandbar-images/NIQ-Discover.PNG "
+                alt="NIQ logo" /></li>
+        <div class="overflow">
+            <li class="list-items" *ngFor="let permission of user.permissions;"
+                [ngClass]="{'border-class' : currentlySelected === permission.name}"
+                (click)="changeCurrentlySelected(permission.name)" routerLink="{{permission.route}}">
+                {{ permission.name}}</li>
+        </div>
+    </div>
+
+    <div class="right-side">
+        <img class="icon-right" src="../../assets/images/brandbar-images/notification.png " alt="notification icon" />
+
+        <div class="usericon">
+            <li class="username">{{user.uname}}</li>
+            <img class="user" src="../../assets/images/brandbar-images/avatar.png " alt="user icon" />
+        </div>
+        <img class="icon-right" src="../../assets/images/brandbar-images/question-circle.svg "
+            alt="question mark within a circle" />
+    </div>
+</ul>
