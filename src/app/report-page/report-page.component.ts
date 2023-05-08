@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service';
 
 @Component({
   selector: 'app-report-page',
@@ -17,6 +18,9 @@ export class ReportPageComponent {
   saveIconDisable: boolean = false;
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
+  expandCard: boolean = false;
+
+  constructor(public shimmerService: ShimmerEffectService,) { }
 
   headerMoreOptions = [
     { "value": "Save", "class": 'fa fa-print' },

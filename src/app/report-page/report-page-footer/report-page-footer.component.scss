@@ -1,0 +1,24 @@
+$gray4f : #4f4f4f;
+
+.report-page-footer {
+    padding: 0px 12px;
+    padding-top: 6px;
+    padding-bottom: 10px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    font-size: 11px;
+    border-top: 1.5px solid white;
+    background-color: rgb(242, 242, 242);
+    user-select: none;
+    display: flex;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    color: $gray4f;
+
+    .footer-content {
+        cursor: pointer;
+        margin: 0px 0px;
+        border-bottom: 1px solid $gray4f;
+    }
+}
