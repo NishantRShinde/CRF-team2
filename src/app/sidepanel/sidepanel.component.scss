@@ -78,34 +78,6 @@
     flex-wrap: wrap;
   }
 
-  .inner-selected-div{
-    padding: 8px 8px 6px;
-  }
-
-  .selected-elements{
-    background-color: #BDD1FC;
-    color: #262626;
-    font-size: 11px;
-    padding: 3px;
-    margin: 2px 4px 6px 2px;
-    cursor: pointer;
-  }
-
-  .remove{
-    font-size: small;
-    position: absolute;
-    display: none;
-    cursor: pointer;
-  }
-
-  .trash{
-    right: 10px;
-    font-size: small;
-    position: absolute;
-    display: none;
-    cursor: pointer;
-  }
-
   .selected-div{
     background-color: white;
     box-shadow: 0 1px 2px #00000080, 0 4px 5px #0000002b;
