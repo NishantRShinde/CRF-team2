@@ -1,0 +1,542 @@
+[
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 07/20/19",
+        "product": "BEER | ANHEUSER-BUSCH INBEV SA",
+        "$": 349268354.912
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 08/17/19",
+        "product": "SODA | PEPSICO INC",
+        "$": 213467899.324
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 09/14/19",
+        "product": "WATER | THE COCA-COLA COMPANY",
+        "$": 178943567.791
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 10/12/19",
+        "product": "TEA | NESTLE SA",
+        "$": 145321346.908
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 11/09/19",
+        "product": "ENERGY DRINKS | RED BULL GMBH",
+        "$": 102587679.097
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 12/07/19",
+        "product": "JUICE | TROPICANA PRODUCTS INC",
+        "$": 87456543.123
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 01/04/20",
+        "product": "MILK | DAIRY FARMERS OF AMERICA INC",
+        "$": 76123456.789
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 02/01/20",
+        "product": "BEER | MOLSON COORS BEVERAGE COMPANY",
+        "$": 62456789.432
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 02/29/20",
+        "product": "SODA | THE COCA-COLA COMPANY",
+        "$": 54789321.012
+    },
+    {
+        "market": "Total US Food",
+        "period": "4 w/e 03/28/20",
+        "product": "WATER | NESTLE SA",
+        "$": 46874532.109
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 07/20/19",
+        "product": "BEER | BROOKLYN BREWERY LLC",
+        "$": 326787.980
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 08/17/19",
+        "product": "COFFEE | STARBUCKS CORPORATION",
+        "$": 198567.893
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 09/14/19",
+        "product": "PASTRIES | BAKED BY MELISSA INC",
+        "$": 144679.456
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 10/12/19",
+        "product": "PIZZA | PIZZA HUT INC",
+        "$": 117894.234
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 11/09/19",
+        "product": "BAGELS | EINSTEIN NOAH RESTAURANT GROUP INC",
+        "$": 85367.890
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 12/07/19",
+        "product": "SEAFOOD | RED LOBSTER HOSPITALITY LLC",
+        "$": 72098.234
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 01/04/20",
+        "product": "ASIAN FOOD | PANDA RESTAURANT GROUP INC",
+        "$": 60743.219
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 02/01/20",
+        "product": "MEXICAN FOOD | CHIPOTLE MEXICAN GRILL INC",
+        "$": 50432.097
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 02/29/20",
+        "product": "ITALIAN FOOD | OLIVE GARDEN ITALIAN RESTAURANT",
+        "$": 40987.123
+    },
+    {
+        "market": "New York City Food",
+        "period": "4 w/e 03/28/20",
+        "product": "HAMBURGERS | MCDONALD'S CORPORATION",
+        "$": 32678.980
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 07/20/19",
+        "product": "BURRITOS | CHIPOTLE MEXICAN GRILL INC",
+        "$": 457894.123
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 08/17/19",
+        "product": "PIZZA | DOMINO'S PIZZA INC",
+        "$": 298765.980
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 09/14/19",
+        "product": "SUSHI | SUGARFISH BY SUSHI NOZAWA",
+        "$": 214567.897
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 10/12/19",
+        "product": "HOT DOGS | NATHAN'S FAMOUS INC",
+        "$": 179432.345
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 11/09/19",
+        "product": "CHINESE FOOD | P.F. CHANG'S CHINA BISTRO INC",
+        "$": 124567.908
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 12/07/19",
+        "product": "TACOS | TACO BELL CORPORATION",
+        "$": 105432.097
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 01/04/20",
+        "product": "ITALIAN FOOD | MAGGIANO'S LITTLE ITALY",
+        "$": 89876.234
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 02/01/20",
+        "product": "HAMBURGERS | IN-N-OUT BURGER",
+        "$": 76234.890
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 02/29/20",
+        "product": "PIZZA | PIZZERIA MOZZA",
+        "$": 63789.876
+    },
+    {
+        "market": "Los Angeles Food",
+        "period": "4 w/e 03/28/20",
+        "product": "MEXICAN FOOD | EL TORITO RESTAURANT",
+        "$": 52345.123
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 07/20/19",
+        "product": "BARBECUE | RUDY'S COUNTRY STORE AND BAR-B-Q",
+        "$": 245678.987
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 08/17/19",
+        "product": "SEAFOOD | LANDRY'S INC",
+        "$": 165432.123
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 09/14/19",
+        "product": "HAMBURGERS | WHATABURGER RESTAURANTS LLC",
+        "$": 114567.890
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 10/12/19",
+        "product": "ITALIAN FOOD | CARRABBA'S ITALIAN GRILL",
+        "$": 87654.765
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 11/09/19",
+        "product": "PIZZA | PAPA JOHN'S INTERNATIONAL INC",
+        "$": 65432.097
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 12/07/19",
+        "product": "MEXICAN FOOD | NINFA'S RESTAURANTS",
+        "$": 50987.890
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 01/04/20",
+        "product": "ASIAN FOOD | P.F. CHANG'S CHINA BISTRO INC",
+        "$": 39678.234
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 02/01/20",
+        "product": "SANDWICHES | JIMMY JOHN'S ENTERPRISES LLC",
+        "$": 28543.219
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 02/29/20",
+        "product": "CHICKEN | CHICK-FIL-A INC",
+        "$": 17432.097
+    },
+    {
+        "market": "Houston Food",
+        "period": "4 w/e 03/28/20",
+        "product": "HOT DOGS | JCI GRILL LLC",
+        "$": 11076.234
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 07/20/19",
+        "product": "PIZZA | PIZZA HUT INC",
+        "$": 367894.234
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 08/17/19",
+        "product": "CHICKEN | KFC CORPORATION",
+        "$": 246789.123
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 09/14/19",
+        "product": "HAMBURGERS | THE WENDY'S COMPANY",
+        "$": 176543.789
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 10/12/19",
+        "product": "SEAFOOD | LONG JOHN SILVER'S LLC",
+        "$": 123456.789
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 11/09/19",
+        "product": "MEXICAN FOOD | CHIPOTLE MEXICAN GRILL INC",
+        "$": 98765.432
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 12/07/19",
+        "product": "BARBECUE | DICKEY'S BARBECUE PIT",
+        "$": 76543.210
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 01/04/20",
+        "product": "ITALIAN FOOD | OLIVE GARDEN ITALIAN RESTAURANT",
+        "$": 65432.109
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 02/01/20",
+        "product": "COFFEE | STARBUCKS CORPORATION",
+        "$": 54321.098
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 02/29/20",
+        "product": "PIZZA | DOMINO'S PIZZA LLC",
+        "$": 43210.987
+    },
+    {
+        "market": "Atlanta Food",
+        "period": "4 w/e 03/28/20",
+        "product": "SANDWICHES | SUBWAY SANDWICHES & SALADS",
+        "$": 32109.876
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 07/20/19",
+        "product": "COFFEE | DUNKIN' BRANDS GROUP INC",
+        "$": 409876.234
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 08/17/19",
+        "product": "PIZZA | PIZZERIA UNO CORPORATION",
+        "$": 278945.678
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 09/14/19",
+        "product": "HAMBURGERS | SHAKE SHACK ENTERPRISES LLC",
+        "$": 197654.321
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 10/12/19",
+        "product": "ITALIAN FOOD | CARBONE RESTAURANT CORPORATION",
+        "$": 139876.543
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 11/09/19",
+        "product": "MEXICAN FOOD | TACO BELL CORPORATION",
+        "$": 105432.109
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 12/07/19",
+        "product": "SEAFOOD | RED LOBSTER HOSPITALITY LLC",
+        "$": 78901.234
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 01/04/20",
+        "product": "CHICKEN | POPEYES LOUISIANA KITCHEN INC",
+        "$": 65432.109
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 02/01/20",
+        "product": "SANDWICHES | PANERA BREAD COMPANY",
+        "$": 54321.098
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 02/29/20",
+        "product": "COFFEE | STARBUCKS CORPORATION",
+        "$": 43210.987
+    },
+    {
+        "market": "New York Food",
+        "period": "4 w/e 03/28/20",
+        "product": "PIZZA | PAPA JOHN'S INTERNATIONAL INC",
+        "$": 32109.876
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 07/20/19",
+        "product": "SANDWICHES | JIMMY JOHN'S FRANCHISE LLC",
+        "$": 209876.543
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 08/17/19",
+        "product": "COFFEE | PEET'S COFFEE & TEA LLC",
+        "$": 147896.789
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 09/14/19",
+        "product": "SEAFOOD | HOOKED ON FISH & CHIPS",
+        "$": 105432.109
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 10/12/19",
+        "product": "MEXICAN FOOD | QDOBA RESTAURANT CORPORATION",
+        "$": 74890.123
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 11/09/19",
+        "product": "PIZZA | LITTLE CAESARS ENTERPRISES INC",
+        "$": 56789.012
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 12/07/19",
+        "product": "CHICKEN | EL POLLO LOCO INC",
+        "$": 43210.987
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 01/04/20",
+        "product": "HAMBURGERS | IN-N-OUT BURGER INC",
+        "$": 34567.890
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 02/01/20",
+        "product": "ITALIAN FOOD | NORTH ITALIA LLC",
+        "$": 23456.789
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 02/29/20",
+        "product": "SANDWICHES | SUBWAY SANDWICHES & SALADS",
+        "$": 12345.678
+    },
+    {
+        "market": "San Francisco Food",
+        "period": "4 w/e 03/28/20",
+        "product": "COFFEE | STARBUCKS CORPORATION",
+        "$": 54321.098
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 07/20/19",
+        "product": "SEAFOOD | JOE'S CRAB SHACK HOLDINGS INC",
+        "$": 321098.765
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 08/17/19",
+        "product": "MEXICAN FOOD | CHIPOTLE MEXICAN GRILL INC",
+        "$": 234567.890
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 09/14/19",
+        "product": "SANDWICHES | JIMMY JOHN'S FRANCHISE LLC",
+        "$": 98765.432
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 10/12/19",
+        "product": "PIZZA | PIZZA HUT INC",
+        "$": 87654.321
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 11/09/19",
+        "product": "COFFEE | DUNKIN' BRANDS GROUP INC",
+        "$": 76543.210
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 12/07/19",
+        "product": "CHICKEN | CHICK-FIL-A INC",
+        "$": 65432.109
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 01/04/20",
+        "product": "HAMBURGERS | FIVE GUYS HOLDINGS LLC",
+        "$": 54321.098
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 02/01/20",
+        "product": "ITALIAN FOOD | OLIVE GARDEN",
+        "$": 43210.987
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 02/29/20",
+        "product": "SANDWICHES | PANERA BREAD COMPANY",
+        "$": 32109.876
+    },
+    {
+        "market": "Miami Food",
+        "period": "4 w/e 03/28/20",
+        "product": "MEXICAN FOOD | TACO BELL CORPORATION",
+        "$": 21098.765
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 07/20/19",
+        "product": "CANDY | MARS INCORPORATED",
+        "$": 654321.098
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 08/17/19",
+        "product": "SNACKS | PEPSICO INC",
+        "$": 987654.321
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 09/14/19",
+        "product": "ICE CREAM | UNILEVER PLC",
+        "$": 123456.789
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 10/12/19",
+        "product": "CEREAL | KELLOGG COMPANY",
+        "$": 67890.123
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 11/09/19",
+        "product": "JUICE | THE COCA-COLA COMPANY",
+        "$": 45678.901
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 12/07/19",
+        "product": "COFFEE | STARBUCKS CORPORATION",
+        "$": 23456.789
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 01/04/20",
+        "product": "PASTA | NESTLE SA",
+        "$": 90123.456
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 02/01/20",
+        "product": "CHIPS | KRAFT HEINZ COMPANY",
+        "$": 34567.890
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 02/29/20",
+        "product": "SODA | DR PEPPER SNAPPLE GROUP INC",
+        "$": 7890.123
+    },
+    {
+        "market": "Denver Food",
+        "period": "4 w/e 03/28/20",
+        "product": "CANDY | THE HERSHEY COMPANY",
+        "$": 12345.678
+    }
+]
