@@ -18,11 +18,22 @@
             </div>
             <div *ngIf="sidepanelService.currentSelected ==='Products'" class="selected-div">
                 <div class="products-div">
-
+                    <div *ngFor="let select of getKeys(sidepanelService.currentSelected)" >
+                        <div *ngIf="selectedList[sidepanelService.currentSelected][1][select]" class="selected-elements">
+                            <span >{{select}} &nbsp;<i class="fa fa-remove" (click)="trash(sidepanelService.currentSelected,select)"></i>
+                            </span>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div *ngIf="sidepanelService.currentSelected !='Products'" class="selected-div">
-
+            <div *ngIf="sidepanelService.currentSelected !='Products'">
+                <div *ngFor="let select of getKeys(sidepanelService.currentSelected)">
+                    <div *ngIf="selectedList[sidepanelService.currentSelected][1][select]" class="selected-div unselected-elements">
+                        <span >{{select}}
+                        </span>
+                        <i class="fa fa-trash trash i-hover" (click)="trash(sidepanelService.currentSelected,select)"></i>
+                    </div>
+                </div>
             </div>
             <span class="addbtn" (click)="add(sidepanelService.currentSelected)"><u>+ Add</u></span>
         </div>
