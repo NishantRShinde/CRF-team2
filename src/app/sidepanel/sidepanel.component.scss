@@ -1,0 +1,55 @@
+.sidepanel {
+    height: 100%;
+    width: 300px;
+    position: fixed;
+    padding: 10px;
+    padding-top: 44px;
+    z-index: 1;
+    top: 0px;
+    right: 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    overflow-x: scroll;
+    
+  }
+
+  .li-left{
+    width: 80%;
+  }
+  .li-right{
+    width: 20%;
+  }
+  .closebtn {
+    font-size: 30px;
+    color: #262626;
+    margin: 0px;
+    padding: 0px 3px 0px 3px;
+    text-decoration: none;
+    background-image: url("../../assets/images/cross.png");
+    cursor: pointer;;
+    &:hover{
+        background-color: rgb(225, 224, 224);
+    }
+  }
+
+  .menubtn {
+    margin-left: 0px;
+    padding: 0px 4px 3px 4px;
+    font-size: 15px;
+    text-decoration: none;
+    color: #262626;
+    display: block;
+    cursor: pointer;
+    &:hover{
+        background-color: rgb(225, 224, 224);
+    }
+
+  }
+
+  .heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    padding-left: 0px;
+  }

@@ -1,7 +1,8 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<div *ngIf="!openDatasetSelectorService.isFirst">
+
+<div *ngIf="!openDatasetSelectorService.isFirst" id="reportPage" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
     <div class="page-header">
         <div>
             <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()"
@@ -67,7 +68,7 @@
             </div>
         </div>
     </div>
-    <div class="Run-Button-container">
+    <div class="Run-Button-container" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
         <button class="Run-Button">Run ➤</button>
     </div>
 </div>
