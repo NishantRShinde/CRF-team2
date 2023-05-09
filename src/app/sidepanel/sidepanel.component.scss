@@ -76,7 +76,6 @@
   .products-div {
     display: flex;
     flex-wrap: wrap;
-
   }
 
   .selected-div{
@@ -88,8 +87,7 @@
     padding: 8px 8px 6px;
     &:hover{
       border-left: 2px solid #2d6df6;
-      .i-hover{display: inline;}
-      
+      .i-hover{display: inline;}   
     }
     word-break: break-word;
     margin-bottom: 10px;
