@@ -165,3 +165,27 @@
     }
   }
 }
+
+.Run-Button {
+  background-color: #0a52ed;
+  align-self: last baseline;
+  margin-left: 20px;
+  color: white;
+  width: 80px;
+  border-radius: 4px;
+  font-weight: 800;
+  font-size: 15px;
+  border: none;
+  border-radius: 2px;
+  margin-right: 25px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.Run-Button-container {
+  position: absolute;
+  bottom: 30px;
+  right: 12px;
+  display: flex;
+  flex-grow: 1;
+}
