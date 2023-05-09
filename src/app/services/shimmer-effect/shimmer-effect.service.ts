@@ -3,8 +3,9 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
-export class ShimmerEffectService {
-  isloading: boolean = false;
+export class ShimmerEffectService {  
+    isloading: boolean = false;
+
 
   constructor() {
     setTimeout(() => {

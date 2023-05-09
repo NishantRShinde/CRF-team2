@@ -24,7 +24,8 @@
                 <i class="fa fa-print"></i>
             </button>
             <span class="vertical-line"></span>
-            <button type="button" class="icon-button" [disabled]="addcardIconDisable">
+            <button type="button" class="icon-button" (click)="showChartList=!showChartList"
+                [disabled]="addcardIconDisable" (blur)="showChartList=false">
                 <i class="fa fa-plus-circle"></i>
             </button>
             <button type="button" class="icon-button" [disabled]="moreIconDisable" (blur)="headerMore = false"
@@ -33,6 +34,18 @@
 
             </button>
         </div>
+
+        <div *ngIf="showChartList" class="more-container" id="chart-container">
+            <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
+                <div (mousedown)="addCard(option.name)">
+                    <span class="symbol chart-symbol">
+                        <i class="{{ option.class }}"> </i>
+                    </span>
+                    <span>{{ option.name }}</span>
+                </div>
+            </div>
+        </div>
+
         <div *ngIf="headerMore" class="more-container">
             <div *ngFor="let a of headerMoreOptions">
                 <div class="icon">
@@ -69,7 +82,9 @@
         </div>
     </div>
     <div class="Run-Button-container" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
-        <button class="Run-Button">Run ➤</button>
+        <button class="Run-Button" [disabled]="shimmerService.isloading" (click)="RunButton()" *ngIf="showRunButton"
+        [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
+        </button>
     </div>
 </div>
 

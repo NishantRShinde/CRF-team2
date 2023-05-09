@@ -21,17 +21,28 @@ export class ReportPageComponent {
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
   expandCard: boolean = false;
+  showChartList: boolean = false;
+  chartOptions: { class: string; name: string }[] = [
+    { class: 'bi bi-table', name: 'Table' },
+    { class: 'bi bi-graph-up', name: 'Line chart' },
+    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
+    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
+    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
+    { class: 'bi bi-border-inner', name: 'Scatter chart' },
+  ];
 
-  constructor(public shimmerService: ShimmerEffectService,
-              public openDatasetSelectorService: OpenDatasetSelectorService,
-              public sidepanelService: SidepanelService) { }
+  constructor(public openDatasetSelectorService: OpenDatasetSelectorService,
+    public shimmerService: ShimmerEffectService,public sidepanelService: SidepanelService) { }
 
   headerMoreOptions = [
-    { "value": "Save", "class": 'fa fa-print' },
-    { "value": "Add", "class": 'fa fa-plus-circle' },
-    { "value": "Report Filter", "class": 'fa fa-filter' },
-    { "value": "Edit Report layout", "class": 'fa fa-retweet' }
+    { value: 'Save', class: 'fa fa-print' },
+    { value: 'Add', class: 'fa fa-plus-circle' },
+    { value: 'Report Filter', class: 'fa fa-filter' },
+    { value: 'Edit Report layout', class: 'fa fa-retweet' },
   ];
+
+  addCard(type: string): void {}
+  showRunButton: boolean = true;
 
   undoClick() {
     this.redo = this.reportTitle;
@@ -62,4 +73,9 @@ export class ReportPageComponent {
     this.undoIconDisable = false;
     this.oldReportTitle = this.reportTitle;
   }
+  RunButton() {
+    this.showRunButton = false;
+  }
+  
+
 }
