@@ -86,6 +86,9 @@
         [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
         </button>
     </div>
+    <app-bottom-bar *ngIf="showBottomBar"></app-bottom-bar>
+
+    
 </div>
 
 <app-report-page-footer></app-report-page-footer>

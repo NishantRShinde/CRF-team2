@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ReportPageFooterComponent } from './report-page/report-page-footer/report-page-footer.component';
 import { SidepanelComponent } from './sidepanel/sidepanel.component';
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { SidepanelComponent } from './sidepanel/sidepanel.component';
     ReportPageFooterComponent,
     ReportPageComponent,
     SidepanelComponent,
+    BottomBarComponent,
   ],
   imports: [
     BrowserModule,

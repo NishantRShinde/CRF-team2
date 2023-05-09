@@ -41,6 +41,7 @@ export class ReportPageComponent {
     { value: 'Edit Report layout', class: 'fa fa-retweet' },
   ];
 
+  showBottomBar = false;
   addCard(type: string): void {}
   showRunButton: boolean = true;
 
@@ -75,7 +76,9 @@ export class ReportPageComponent {
   }
   RunButton() {
     this.showRunButton = false;
+    this.showBottomBar = true;
+    this.shimmerService.shimmerEffect(); 
+
   }
-  
 
 }

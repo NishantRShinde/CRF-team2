@@ -1,0 +1,15 @@
+.bottom-bar {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    bottom: 0;
+    z-index: 9999;
+    border-radius: 5px;
+    left: 0;
+    width: 100%;
+    border-top: 1px solid black;
+    background-color: white;
+    height: 90px;
+    flex-wrap: wrap;
+  }
