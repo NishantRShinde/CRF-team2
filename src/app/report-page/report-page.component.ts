@@ -34,7 +34,7 @@ export class ReportPageComponent {
   ];
   preview: boolean = true;
   rowData: any;
-  // colData!: ColDef[];
+  colData!: ColDef[];
 
   ngOnInit(): void {
     this.http
@@ -42,38 +42,42 @@ export class ReportPageComponent {
       .subscribe((data) => {
         this.rowData = data;
       });
-    // this.cardList[0].columns = this.getColumns();
+    this.colData = this.getColumns();
   }
 
-  colData = [
-    {
-      field: 'market',
-      headerName: 'Markets',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 137,
-    },
-    {
-      field: 'period',
-      headerName: 'Periods',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 134,
-    },
-    {
-      field: 'product',
-      headerName: 'Products',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 205,
-    },
-    {
-      field: '$',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 180,
-    },
-  ];
+  getColumns() {
+    return [
+      {
+        field: 'market',
+        headerName: 'Markets',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 137,
+      },
+      {
+        field: 'period',
+        headerName: 'Periods',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 134,
+      },
+      {
+        field: 'product',
+        headerName: 'Products',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 205,
+      },
+      {
+        field: '$',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 180,
+
+        valueFormatter: this.factFormatter.bind(this),
+      },
+    ];
+  }
 
   constructor(
     public http: HttpClient,
@@ -100,7 +104,7 @@ export class ReportPageComponent {
   // ];
 
   showBottomBar = false;
-  addCard(type: string): void {}
+  addCard(type: string): void { }
   showRunButton: boolean = true;
 
   undoClick() {
@@ -134,17 +138,24 @@ export class ReportPageComponent {
     this.oldReportTitle = this.reportTitle;
   }
 
-  valFormatter(params: any) {
+  factFormatter(params: any) {
     if (this.preview) {
       return '###'
     }
-    return params.value
+    const numberValue = parseFloat(params.value);
+    const formattedValue = numberValue.toLocaleString('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+    return formattedValue;
   }
 
   RunButton() {
     this.showRunButton = false;
     this.showBottomBar = true;
-    this.shimmerService.shimmerEffect(); 
+    this.shimmerService.shimmerEffect();
   }
 
 }

@@ -3,8 +3,71 @@
 @import 'ag-grid-community/styles/ag-theme-alpine.css';
 @import "~bootstrap-icons/font/bootstrap-icons.css";
 
-body{
+$font: "arial", "sans-serif";
+
+body {
     margin: 0;
     background-color: #f2f2f2;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.ag-theme-alpine {
+    border-collapse: collapse;
+
+    .ag-header-cell {
+        font-size: 14px;
+        font-family: $font;
+        padding: 0px 8px;
+
+    }
+
+    .ag-cell {
+        font-size: 14px;
+        font-weight: 400;
+        font-family: $font;
+        padding: 0px 8px;
+    }
+
+    .ag-header-row {
+        height: 40px;
+    }
+
+    ::-webkit-scrollbar {
+        height: 5px;
+        width: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: gray;
+    }
+}
+
+.ag-header-cell.header-cell {
+    border-right: 1px solid #6e6e6e;
+    border-bottom: none;
+    background-color: #ffffff;
+
+    &:last-child {
+        padding: 0px;
+        padding-left: 160px;
+    }
+}
+
+.body-cell {
+    border-right: none;
+    border-bottom: none;
+
+    &:last-child {
+        text-align: right;
+    }
+}
+
+.ag-ltr .ag-cell {
+    border-right: 1px solid #6e6e6e;
+    border-bottom: 1px solid #6e6e6e;
+    background-color: #ffffff;
 }

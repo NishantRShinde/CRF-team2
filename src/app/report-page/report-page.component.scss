@@ -60,9 +60,7 @@
   }
 }
 
-#chart-container{
-  right: 62px;
-}
+
 
 .more-container {
   display: flex;
@@ -100,13 +98,24 @@
   }
 }
 
+.chart-container{
+  right: 62px;
+}
+
+.move-addchart{
+  right: 382px;
+}
+.move-options {
+  right: 350px;
+}
 .expand-card {
-  position: fixed;
+  position: absolute;
   width: 100%;
   margin: 0px;
   padding: 0%;
   top: 0px;
   height: 100%;
+  z-index: 7;
 }
 
 .comp-card {
@@ -148,7 +157,11 @@
 
     &-body {
       flex-grow: 1;
-      margin: 2px 18px 0px 18px;
+      margin: 8px 18px 20px 18px;
+    }
+    &-body-line-chart {
+      flex-grow: 1;
+      margin: 2px 18px 0px;
     }
 
     .tab-title {
