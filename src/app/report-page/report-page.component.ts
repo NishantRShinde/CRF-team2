@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service';
+import { HttpClient } from '@angular/common/http';
+import { ColDef } from 'ag-grid-community';
 
 @Component({
   selector: 'app-report-page',
@@ -19,8 +21,52 @@ export class ReportPageComponent {
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
   expandCard: boolean = false;
+  preview: boolean = true;
+  rowData: any;
+  // colData!: ColDef[];
 
-  constructor(public shimmerService: ShimmerEffectService,) { }
+  constructor(
+    public shimmerService: ShimmerEffectService,
+    public http: HttpClient) { }
+
+  ngOnInit(): void {
+    this.http
+      .get('../../assets/jsonfiles/97210-RB_RULE.json')
+      .subscribe((data) => {
+        this.rowData = data;
+      });
+    // this.cardList[0].columns = this.getColumns();
+  }
+
+  colData = [
+    {
+      field: 'market',
+      headerName: 'Markets',
+      headerClass: 'header-cell',
+      cellClass: 'body-cell',
+      width: 137,
+    },
+    {
+      field: 'period',
+      headerName: 'Periods',
+      headerClass: 'header-cell',
+      cellClass: 'body-cell',
+      width: 134,
+    },
+    {
+      field: 'product',
+      headerName: 'Products',
+      headerClass: 'header-cell',
+      cellClass: 'body-cell',
+      width: 205,
+    },
+    {
+      field: '$',
+      headerClass: 'header-cell',
+      cellClass: 'body-cell',
+      width: 180,
+    },
+  ];
 
   headerMoreOptions = [
     { "value": "Save", "class": 'fa fa-print' },
@@ -29,16 +75,16 @@ export class ReportPageComponent {
     { "value": "Edit Report layout", "class": 'fa fa-retweet' }
   ];
 
-  rowData = [
-    { make: 'Toyota', model: 'Celica', price: 35000 },
-    { make: 'Ford', model: 'Mondeo', price: 32000 },
-    { make: 'Porsche', model: 'Boxster', price: 72000 },
-  ];
-  colData = [
-    { field: 'make' },
-    { field: 'model' },
-    { field: 'price' },
-  ];
+  // rowData = [
+  //   { make: 'Toyota', model: 'Celica', price: 35000 },
+  //   { make: 'Ford', model: 'Mondeo', price: 32000 },
+  //   { make: 'Porsche', model: 'Boxster', price: 72000 },
+  // ];
+  // colData = [
+  //   { field: 'make' },
+  //   { field: 'model' },
+  //   { field: 'price', valueFormatter: this.valFormatter.bind(this), },
+  // ];
 
   undoClick() {
     this.redo = this.reportTitle;
@@ -68,5 +114,11 @@ export class ReportPageComponent {
     this.undo = this.oldReportTitle;
     this.undoIconDisable = false;
     this.oldReportTitle = this.reportTitle;
+  }
+  valFormatter(params: any) {
+    if (this.preview) {
+      return '###'
+    }
+    return params.value
   }
 }
