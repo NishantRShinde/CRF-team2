@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Chart } from 'angular-highcharts';
 import { HttpClient } from '@angular/common/http';
 import { SeriesOptionsType } from 'highcharts';
@@ -8,7 +8,7 @@ import { SeriesOptionsType } from 'highcharts';
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
 })
-export class LineChartComponent {
+export class LineChartComponent implements OnInit {
   products: any;
   productNames: string[] = [];
   xLabels: string[] = [];
@@ -16,7 +16,8 @@ export class LineChartComponent {
   previewBeerDataSeries: SeriesOptionsType[] = [];
   chartOptions: any;
 
-  constructor(public http: HttpClient) {
+  constructor(public http: HttpClient) {}
+  ngOnInit(): void {
     this.http
       .get('../../assets/jsonfiles/line-chart-data.json')
       .subscribe((res) => {
@@ -67,7 +68,7 @@ export class LineChartComponent {
             enabled: false,
           },
           title: {
-            text: '',
+            text: null,
           },
           xAxis: {
             labels: {

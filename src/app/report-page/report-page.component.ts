@@ -102,7 +102,8 @@ export class ReportPageComponent {
     public http: HttpClient,
     public openDatasetSelectorService: OpenDatasetSelectorService,
     public shimmerService: ShimmerEffectService,
-    public sidepanelService: SidepanelService) { }
+    public sidepanelService: SidepanelService
+  ) {}
 
   headerMoreOptions = [
     { value: 'Save', class: 'fa fa-print' },
@@ -133,7 +134,7 @@ export class ReportPageComponent {
         showActualFact: false,
         viewStatus: 'preview',
       });
-    } else {
+    } else if (type === 'Line chart') {
       this.cardList.push({
         type: 'lineChart',
         title: 'Chart-' + listLength.toString(),
@@ -194,7 +195,7 @@ export class ReportPageComponent {
       });
       return formattedValue;
     }
-    return '###'
+    return '###';
   }
 
   RunButton() {
@@ -209,7 +210,6 @@ export class ReportPageComponent {
     }
     this.showRunButton = false;
     this.showBottomBar = true;
-    this.shimmerService.shimmerEffect(); 
+    this.shimmerService.shimmerEffect();
   }
-
 }
