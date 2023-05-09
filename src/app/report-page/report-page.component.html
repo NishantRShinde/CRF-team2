@@ -81,14 +81,13 @@
             </div>
         </div>
     </div>
+
     <div class="Run-Button-container" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
         <button class="Run-Button" [disabled]="shimmerService.isloading" (click)="RunButton()" *ngIf="showRunButton"
         [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
         </button>
     </div>
     <app-bottom-bar *ngIf="showBottomBar"></app-bottom-bar>
-
-    
 </div>
 
 <app-report-page-footer></app-report-page-footer>
