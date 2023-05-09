@@ -28,8 +28,11 @@ export class DataSummaryComponent {
     return Object.keys(this.content); 
   } 
 
-  openSidepanel(){
-    this.sidepanelService.isSidepanelOpen = !this.sidepanelService.isSidepanelOpen
-    
+  openSidepanel(item:string){
+    this.sidepanelService.isSidepanelOpen = true
+    this.sidepanelService.currentSelected = item
+    this.sidepanelService.addActive = false
+    this.sidepanelService.add = ""
+
   }
 }
