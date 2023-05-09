@@ -126,6 +126,9 @@ export class ReportPageComponent {
   showBottomBar = false;
   addCard(type: string): void {
     let listLength = this.cardList.length + 1;
+    this.showRunButton = true;
+    this.shimmerService.shimmerEffect();
+    this.showBottomBar = false;
     if (type === 'Table') {
       this.cardList.push({
         type: 'table',
@@ -210,6 +213,18 @@ export class ReportPageComponent {
     }
     this.showRunButton = false;
     this.showBottomBar = true;
+
     this.shimmerService.shimmerEffect();
+  }
+  cancelButton() {
+    this.showBottomBar = false;
+    this.showRunButton = true;
+    for (let i of this.cardList) {
+      if (i.viewStatus === 'running') {
+        i.viewStatus = 'preview';
+        i.showActualFact = false;
+        i.columns = this.getColumns(false);
+      }
+    }
   }
 }

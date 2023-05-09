@@ -2,7 +2,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<div *ngIf="!openDatasetSelectorService.isFirst" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
+<div *ngIf="openDatasetSelectorService.isDataApplied"
+    [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
     <div class="page-header">
         <div>
             <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()"
@@ -118,7 +119,8 @@
             [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
         </button>
     </div>
-    <app-bottom-bar *ngIf="showBottomBar"></app-bottom-bar>
+
+    <app-bottom-bar *ngIf="showBottomBar" (cancel)="cancelButton()"></app-bottom-bar>
 
 </div>
 

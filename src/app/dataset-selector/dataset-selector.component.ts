@@ -118,7 +118,6 @@ export class DatasetSelectorComponent {
 
 
   applydataset() {
-    this.openDatasetSelectorService.isFirst = false;
     this.datasetSelected+=this.currentTitle;
     this.openDatasetSelectorService.isSelectorOpen=false;
     this.shimmerService.shimmerEffect(); 
