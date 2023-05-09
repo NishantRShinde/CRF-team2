@@ -29,6 +29,17 @@ export class ReportPageComponent {
     { "value": "Edit Report layout", "class": 'fa fa-retweet' }
   ];
 
+  rowData = [
+    { make: 'Toyota', model: 'Celica', price: 35000 },
+    { make: 'Ford', model: 'Mondeo', price: 32000 },
+    { make: 'Porsche', model: 'Boxster', price: 72000 },
+  ];
+  colData = [
+    { field: 'make' },
+    { field: 'model' },
+    { field: 'price' },
+  ];
+
   undoClick() {
     this.redo = this.reportTitle;
     this.reportTitle = this.undo;

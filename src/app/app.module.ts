@@ -12,6 +12,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ReportPageFooterComponent } from './report-page/report-page-footer/report-page-footer.component';
+import { AgGridModule } from 'ag-grid-angular';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { ReportPageFooterComponent } from './report-page/report-page-footer/repo
     DataSummaryComponent,
     DatasetSelectorComponent,
     BrandbarComponent,
-    ReportPageFooterComponent
+    ReportPageFooterComponent,
     ReportPageComponent
   ],
   imports: [
@@ -30,6 +31,7 @@ import { ReportPageFooterComponent } from './report-page/report-page-footer/repo
     FormsModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
+    AgGridModule,
     RouterModule.forRoot([
       { path: 'home', component: AppComponent },
       { path: 'monitorMyBusiness', component: AppComponent },
