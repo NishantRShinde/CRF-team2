@@ -1,11 +1,54 @@
 <div [class.sidepanel]="sidepanelService.isSidepanelOpen" id="sidepanel">
     <div>
         <ul class="heading">
-            <li class="li-left"><strong>{{ sidepanelService.currentSelected }}
+            <li class="li-left" *ngIf="!sidepanelService.addActive"><strong>{{ sidepanelService.currentSelected }}
                 </strong><i class="fa fa-angle-down"></i></li>
+            <li class="li-left" *ngIf="sidepanelService.addActive"><strong>{{ sidepanelService.add }} </strong><i
+                    class="fa fa-angle-down"></i></li>
             <li class="heading li-right">
                 <i class="fa fa-ellipsis-h menubtn"></i><br><i class="closebtn" (click)="close()">×</i>
             </li>
         </ul>
+    </div>
+    <div class="sidepanel-content">
+
+        <div *ngIf="!sidepanelService.addActive">
+            <div *ngIf="!sidepanelService.addActive" class="heading content-div">
+                <p><i class="fa fa-angle-down"></i> Selection</p><i class="fa fa-bars"></i>
+            </div>
+            <div *ngIf="sidepanelService.currentSelected ==='Products'" class="selected-div">
+                <div class="products-div">
+                    <div *ngFor="let select of getKeys(sidepanelService.currentSelected)" >
+                        <div *ngIf="selectedList[sidepanelService.currentSelected][1][select]" class="selected-elements">
+                            <span >{{select}} &nbsp;<i class="fa fa-remove" (click)="trash(sidepanelService.currentSelected,select)"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div *ngIf="sidepanelService.currentSelected !='Products'">
+                <div *ngFor="let select of getKeys(sidepanelService.currentSelected)">
+                    <div *ngIf="selectedList[sidepanelService.currentSelected][1][select]" class="selected-div unselected-elements">
+                        <span >{{select}}
+                        </span>
+                        <i class="fa fa-trash trash i-hover" (click)="trash(sidepanelService.currentSelected,select)"></i>
+                    </div>
+                </div>
+            </div>
+            <span class="addbtn" (click)="add(sidepanelService.currentSelected)"><u>+ Add</u></span>
+        </div>
+        <div *ngIf="sidepanelService.addActive" class="add-content">
+            <ul class="heading">
+                <li><i (click)="addBack(sidepanelService.add)" class="fa fa-arrow-left click"></i></li>
+                <li><button (click)="addDone(sidepanelService.add)" class="btn-primary click">Done</button></li>
+            </ul>
+            <div *ngFor="let select of getKeys(sidepanelService.add)">
+                <div *ngIf="!selectedList[sidepanelService.add][1][select]" class="selected-div unselected-elements">
+                    <span >{{select}}
+                    </span>
+                    <i class="fas fa-plus plus i-hover" (click)="plus(sidepanelService.add,select)"></i>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

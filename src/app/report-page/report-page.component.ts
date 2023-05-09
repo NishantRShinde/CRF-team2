@@ -149,6 +149,7 @@ export class ReportPageComponent {
         this.cardHolder.nativeElement.scrollHeight;
     }, 0);
   }
+
   showRunButton: boolean = true;
 
   undoClick() {

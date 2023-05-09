@@ -1,0 +1,40 @@
+{
+    "Facts":[
+        "",
+        {"$":true,
+        "#":true,
+        "*":false}
+    ],
+
+    "Products":[
+        "of",
+        {
+            "Beer":true,
+            "Cola":false,
+            "Pepsi":false,
+            "Coke":true,
+            "ThumbsUp":false,
+            "Sprite":false,
+            "RebBull":false}
+        ],
+
+    "Markets": [
+        "in",
+        {
+            "US":true,
+            "UK":false,
+            "India": false,
+            "Thailand":true
+        }
+    ],
+
+    "Periods":[
+        "during",
+        {
+            "1 Week":true,
+            "3 Week":true,
+            "12 Week":false
+        }
+    ]
+
+}
