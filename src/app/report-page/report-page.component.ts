@@ -24,7 +24,16 @@ export class ReportPageComponent {
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
   expandCard: boolean = false;
-  // preview: boolean = true;
+  showChartList: boolean = false;
+  chartOptions: { class: string; name: string }[] = [
+    { class: 'bi bi-table', name: 'Table' },
+    { class: 'bi bi-graph-up', name: 'Line chart' },
+    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
+    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
+    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
+    { class: 'bi bi-border-inner', name: 'Scatter chart' },
+  ];
+  preview: boolean = true;
   rowData: any;
   colData!: ColDef[];
 
@@ -88,16 +97,6 @@ export class ReportPageComponent {
       },
     ];
   }
-
-  showChartList: boolean = false;
-  chartOptions: { class: string; name: string }[] = [
-    { class: 'bi bi-table', name: 'Table' },
-    { class: 'bi bi-graph-up', name: 'Line chart' },
-    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
-    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
-    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
-    { class: 'bi bi-border-inner', name: 'Scatter chart' },
-  ];
 
   constructor(
     public http: HttpClient,
@@ -213,8 +212,8 @@ export class ReportPageComponent {
     }
     this.showRunButton = false;
     this.showBottomBar = true;
-    this.shimmerService.shimmerEffect(); 
 
+    this.shimmerService.shimmerEffect(); 
   }
   cancelButton(){
     this.showBottomBar = false;
