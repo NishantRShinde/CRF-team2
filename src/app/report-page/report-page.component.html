@@ -2,8 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<div *ngIf="!openDatasetSelectorService.isFirst" id="reportPage"
-    [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
+<div *ngIf="!openDatasetSelectorService.isFirst" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
     <div class="page-header">
         <div>
             <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()"
@@ -36,8 +35,7 @@
             </button>
         </div>
 
-        <div *ngIf="showChartList"
-            [ngClass]="{'more-container': true, 'move-addchart': sidepanelService.isSidepanelOpen, 'chart-container': true}">
+        <div *ngIf="showChartList" class="more-container" [ngStyle]=" {'right': '62px'} ">
             <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
                 <div (mousedown)="addCard(option.name)">
                     <span class="symbol chart-symbol">
@@ -62,30 +60,10 @@
 
     <app-data-summary></app-data-summary>
 
-    <div class="card-holder">
-        <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
+    <div #cardHolder class="card-holder">
+        <div class="card" *ngFor="let a of cardList" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
             <div class="card-head">
-                <input class="tab-title" type="text" value='Card-1' />
-                <div class="card-icons">
-                    <button type="button" class="icon-button" (click)="expandCard = !expandCard">
-                        <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
-                    </button>
-                    <button type="button" class="icon-button">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body-shimmer" *ngIf="shimmerService.isloading">
-                <ngx-skeleton-loader [theme]=" { height: '100%' , width: '100%' }" count="1" appearance="line">
-                </ngx-skeleton-loader>
-            </div>
-            <div *ngIf="!shimmerService.isloading" class="card-body-line-chart">
-                <app-line-chart></app-line-chart>
-            </div>
-        </div>
-        <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
-            <div class="card-head">
-                <input class="tab-title" type="text" value='Table-1' />
+                <input class="tab-title" type="text" [value]='a.title' />
                 <div class="card-icons">
                     <button type="button" class="icon-button" (click)="expandCard = !expandCard">
                         <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
@@ -115,5 +93,7 @@
         </button>
     </div>
     <app-bottom-bar *ngIf="showBottomBar"></app-bottom-bar>
+
 </div>
-<app-report-page-footer></app-report-page-footer>
+
+<app-report-page-footer *ngIf="!expandCard"></app-report-page-footer>

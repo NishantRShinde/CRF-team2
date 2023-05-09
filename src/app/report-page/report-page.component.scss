@@ -60,8 +60,6 @@
   }
 }
 
-
-
 .more-container {
   display: flex;
   flex-direction: column;
@@ -74,11 +72,12 @@
   z-index: 9999;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   cursor: pointer;
-  
+
   .icon {
     padding: 10px 10px;
     font-size: small;
-    width: 86.8%;
+    width: 150px;
+    // width: 86.8%;
 
     &:hover {
       background-color: rgb(242, 242, 242);
@@ -87,27 +86,19 @@
     .symbol {
       padding: 0px 10px 0px 3px;
     }
-    
+
   }
+
   .chart-icon {
     padding: 11px 10px;
     width: 84.5%;
+
     .chart-symbol {
       padding-right: 13px;
     }
   }
 }
 
-.chart-container{
-  right: 62px;
-}
-
-.move-addchart{
-  right: 382px;
-}
-.move-options {
-  right: 350px;
-}
 .expand-card {
   position: absolute;
   width: 100%;
@@ -135,7 +126,9 @@
 
 .card-holder {
   height: calc(100vh - 190px);
-  overflow-y: scroll;
+  margin-bottom: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
 
   .card {
     // width: 100%;
@@ -209,6 +202,20 @@
 .reportpage-compress {
   margin-right: 320px;
 }
-#reportpage{
-  position: relative;
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+
+}
+
+::-webkit-scrollbar-track {
+  // margin-top: 6.1vh; 
+  background: transparent;
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: gray;
+
 }
