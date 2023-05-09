@@ -34,7 +34,6 @@ export class ReportPageComponent {
         this.rowData = data;
       });
     this.colData = this.getColumns();
-    // this.cardList[0].columns = this.getColumns();
   }
 
   getColumns() {
@@ -158,8 +157,6 @@ export class ReportPageComponent {
     this.showRunButton = false;
     this.showBottomBar = true;
     this.shimmerService.shimmerEffect();
-    this.preview = false;
-    this.colData = this.getColumns();
   }
 
 }

@@ -1,0 +1,290 @@
+{
+  "beer": [
+    {
+      "company": "Molson Coors Brewing Co.",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 12000 },
+        { "date": "2022/01/08", "sales": 13500 },
+        { "date": "2022/01/15", "sales": 14000 },
+        { "date": "2022/01/22", "sales": 15000 },
+        { "date": "2022/01/29", "sales": 17000 },
+        { "date": "2022/02/05", "sales": 17500 },
+        { "date": "2022/02/12", "sales": 19000 },
+        { "date": "2022/02/19", "sales": 20000 },
+        { "date": "2022/02/26", "sales": 20500 },
+        { "date": "2022/03/05", "sales": 21500 }
+        
+      ]
+    },
+    
+    {
+      "company": "Sierra Nevada Brewing Co.",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 75000 },
+        { "date": "2022/01/08", "sales": 85000 },
+        { "date": "2022/01/15", "sales": 90000 },
+        { "date": "2022/01/22", "sales": 98000 },
+        { "date": "2022/01/29", "sales": 105000 },
+        { "date": "2022/02/05", "sales": 112000 },
+        { "date": "2022/02/12", "sales": 120000 },
+        { "date": "2022/02/19", "sales": 135000 },
+        { "date": "2022/02/26", "sales": 145000 },
+        { "date": "2022/03/05", "sales": 150000 }
+      ]
+    },
+    {
+      "company": "New Belgium Brewing",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 90000 },
+        { "date": "2022/01/08", "sales": 100000 },
+        { "date": "2022/01/15", "sales": 110000 },
+        { "date": "2022/01/22", "sales": 120000 },
+        { "date": "2022/01/29", "sales": 130000 },
+        { "date": "2022/02/05", "sales": 140000 },
+        { "date": "2022/02/12", "sales": 155000 },
+        { "date": "2022/02/19", "sales": 165000 },
+        { "date": "2022/02/26", "sales": 175000 },
+        { "date": "2022/03/05", "sales": 185000 }
+      ]
+    },
+    
+  
+    {
+      "company": "Brooklyn Brewery",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 150000 },
+        { "date": "2022/01/08", "sales": 155000 },
+        { "date": "2022/01/15", "sales": 160000 },
+        { "date": "2022/01/22", "sales": 165000 },
+        { "date": "2022/01/29", "sales": 170000 },
+        { "date": "2022/02/05", "sales": 175000 },
+        { "date": "2022/02/12", "sales": 180000 },
+        { "date": "2022/02/19", "sales": 185000 },
+        { "date": "2022/02/26", "sales": 190000 },
+        { "date": "2022/03/05", "sales": 195000 }
+      ]
+    },
+    {
+      "company": "Anchor Brewing Company",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 200000 },
+        { "date": "2022/01/08", "sales": 205000 },
+        { "date": "2022/01/15", "sales": 210000 },
+        { "date": "2022/01/22", "sales": 215000 },
+        { "date": "2022/01/29", "sales": 220000 },
+        { "date": "2022/02/05", "sales": 225000 },
+        { "date": "2022/02/12", "sales": 230000 },
+        { "date": "2022/02/19", "sales": 235000 },
+        { "date": "2022/02/26", "sales": 240000 },
+        { "date": "2022/03/05", "sales": 245000 }
+      ]
+    },
+    {
+      "company": "Samuel Adams",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 350000 },
+        { "date": "2022/01/08", "sales": 360000 },
+        { "date": "2022/01/15", "sales": 370000 },
+        { "date": "2022/01/22", "sales": 380000 },
+        { "date": "2022/01/29", "sales": 390000 },
+        { "date": "2022/02/05", "sales": 400000 },
+        { "date": "2022/02/12", "sales": 410000 },
+        { "date": "2022/02/19", "sales": 420000 },
+        { "date": "2022/02/26", "sales": 430000 },
+        { "date": "2022/03/05", "sales": 440000 }
+      ]
+    },
+    {
+      "company": "Boston Beer Company",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 750000 },
+        { "date": "2022/01/08", "sales": 800000 },
+        { "date": "2022/01/15", "sales": 850000 },
+        { "date": "2022/01/22", "sales": 900000 },
+        { "date": "2022/01/29", "sales": 950000 },
+        { "date": "2022/02/05", "sales": 1000000 },
+        { "date": "2022/02/12", "sales": 1050000 },
+        { "date": "2022/02/19", "sales": 1100000 },
+        { "date": "2022/02/26", "sales": 1150000 },
+        { "date": "2022/03/05", "sales": 1200000 }
+      ]
+    },
+    {
+      "company": "Allagash Brewing Company",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 900000 },
+        { "date": "2022/01/08", "sales": 950000 },
+        { "date": "2022/01/15", "sales": 1000000 },
+        { "date": "2022/01/22", "sales": 1050000 },
+        { "date": "2022/01/29", "sales": 1100000 },
+        { "date": "2022/02/05", "sales": 1200000 },
+        { "date": "2022/02/12", "sales": 1300000 },
+        { "date": "2022/02/19", "sales": 1400000 },
+        { "date": "2022/02/26", "sales": 1500000 },
+        { "date": "2022/03/05", "sales": 1600000 }
+      ]
+    },
+    {
+      "company": "Dogfish Head Brewery",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 1500000 },
+        { "date": "2022/01/08", "sales": 1200000 },
+        { "date": "2022/01/15", "sales": 1600000 },
+        { "date": "2022/01/22", "sales": 1650000 },
+        { "date": "2022/01/29", "sales": 1700000 },
+        { "date": "2022/02/05", "sales": 1500000 },
+        { "date": "2022/02/12", "sales": 1800000 },
+        { "date": "2022/02/19", "sales": 1850000 },
+        { "date": "2022/02/26", "sales": 1700000 },
+        { "date": "2022/03/05", "sales": 1950000 }
+      ]
+    }
+  ],
+  
+  "Noodles": [
+    {
+      "company": "Nissin Foods",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 12000 },
+        { "date": "2023/04/08", "sales": 15000 },
+        { "date": "2023/04/15", "sales": 20000 },
+        { "date": "2023/04/22", "sales": 18000 },
+        { "date": "2023/04/29", "sales": 22000 },
+        { "date": "2023/05/06", "sales": 24000 },
+        { "date": "2023/05/13", "sales": 26000 },
+        { "date": "2023/05/20", "sales": 28000 },
+        { "date": "2023/05/27", "sales": 30000 },
+        { "date": "2023/06/03", "sales": 32000 },
+        { "date": "2023/06/10", "sales": 35000 }
+      ]
+    },
+    {
+      "company": "Noodles & Company",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 750000 },
+        { "date": "2023/04/08", "sales": 800000 },
+        { "date": "2023/04/15", "sales": 850000 },
+        { "date": "2023/04/22", "sales": 900000 },
+        { "date": "2023/04/29", "sales": 950000 },
+        { "date": "2023/05/06", "sales": 1000000 },
+        { "date": "2023/05/13", "sales": 1050000 },
+        { "date": "2023/05/20", "sales": 1100000 },
+        { "date": "2023/05/27", "sales": 1150000 },
+        { "date": "2023/06/03", "sales": 1200000 },
+        { "date": "2023/06/10", "sales": 1250000 }
+      ]
+    },
+    {
+      "company": "Campbell Soup Company",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 2000000 },
+        { "date": "2023/04/08", "sales": 2050000 },
+        { "date": "2023/04/15", "sales": 2100000 },
+        { "date": "2023/04/22", "sales": 2150000 },
+        { "date": "2023/04/29", "sales": 2200000 },
+        { "date": "2023/05/06", "sales": 2250000 },
+        { "date": "2023/05/13", "sales": 2300000 },
+        { "date": "2023/05/20", "sales": 2350000 },
+        { "date": "2023/05/27", "sales": 2400000 },
+        { "date": "2023/06/03", "sales": 2450000 },
+        { "date": "2023/06/10", "sales": 2500000 }
+      ]
+    },
+    {
+      "company": "Conagra Brands",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 1500000 },
+        { "date": "2023/04/08", "sales": 1550000 },
+        { "date": "2023/04/15", "sales": 1600000 },
+        { "date": "2023/04/22", "sales": 1650000 },
+        { "date": "2023/04/29", "sales": 1700000 },
+        { "date": "2023/05/06", "sales": 1750000 },
+        { "date": "2023/05/13", "sales": 1800000 },
+        { "date": "2023/05/20", "sales": 1850000 },
+        { "date": "2023/05/27", "sales": 1900000 },
+        { "date": "2023/06/03", "sales": 1950000 },
+        { "date": "2023/06/10", "sales": 2000000 }
+      ]
+    },
+    {
+      "company": "Hain Celestial Group",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 800000 },
+        { "date": "2023/04/08", "sales": 850000 },
+        { "date": "2023/04/15", "sales": 900000 },
+        { "date": "2023/04/22", "sales": 950000 },
+        { "date": "2023/04/29", "sales": 1000000 },
+        { "date": "2023/05/06", "sales": 1050000 },
+        { "date": "2023/05/13", "sales": 1100000 },
+        { "date": "2023/05/20", "sales": 1150000 },
+        { "date": "2023/05/27", "sales": 1200000 },
+        { "date": "2023/06/03", "sales": 1250000 },
+        { "date": "2023/06/10", "sales": 1300000 }
+      ]
+    },
+    {
+      "company": "Maruchan",
+      "revenueOfAWeekInterval": [
+        { "date": "2023/04/01", "sales": 15000 },
+        { "date": "2023/04/08", "sales": 17000 },
+        { "date": "2023/04/15", "sales": 18000 },
+        { "date": "2023/04/22", "sales": 20000 },
+        { "date": "2023/04/29", "sales": 23000 },
+        { "date": "2023/05/06", "sales": 25000 },
+        { "date": "2023/05/13", "sales": 27000 },
+        { "date": "2023/05/20", "sales": 29000 },
+        { "date": "2023/05/27", "sales": 31000 },
+        { "date": "2023/06/03", "sales": 33000 },
+        { "date": "2023/06/10", "sales": 35000 }
+      ]
+    },
+    {
+      "company": "Simply Asia",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 5000 },
+        { "date": "2022/01/08", "sales": 6000 },
+        { "date": "2022/01/15", "sales": 8000 },
+        { "date": "2022/01/22", "sales": 9000 },
+        { "date": "2022/01/29", "sales": 10000 },
+        { "date": "2022/02/05", "sales": 11000 },
+        { "date": "2022/02/12", "sales": 12000 },
+        { "date": "2022/02/19", "sales": 13000 },
+        { "date": "2022/02/26", "sales": 14000 },
+        { "date": "2022/03/05", "sales": 15000 },
+        { "date": "2022/03/12", "sales": 16000 }
+      ]
+    },
+    {
+      "company": "Annie Chun's",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 12000 },
+        { "date": "2022/01/08", "sales": 13000 },
+        { "date": "2022/01/15", "sales": 14000 },
+        { "date": "2022/01/22", "sales": 15000 },
+        { "date": "2022/01/29", "sales": 16000 },
+        { "date": "2022/02/05", "sales": 17000 },
+        { "date": "2022/02/12", "sales": 18000 },
+        { "date": "2022/02/19", "sales": 19000 },
+        { "date": "2022/02/26", "sales": 20000 },
+        { "date": "2022/03/05", "sales": 21000 },
+        { "date": "2022/03/12", "sales": 22000 }
+      ]
+    },
+    {
+      "company": "Nongshim",
+      "revenueOfAWeekInterval": [
+        { "date": "2022/01/01", "sales": 23000 },
+        { "date": "2022/01/08", "sales": 22500 },
+        { "date": "2022/01/15", "sales": 21500 },
+        { "date": "2022/01/22", "sales": 23500 },
+        { "date": "2022/01/29", "sales": 22000 },
+        { "date": "2022/02/05", "sales": 24500 },
+        { "date": "2022/02/12", "sales": 24000 },
+        { "date": "2022/02/19", "sales": 25000 },
+        { "date": "2022/02/26", "sales": 23000 },
+        { "date": "2022/03/05", "sales": 23500 },
+        { "date": "2022/03/12", "sales": 24500 }
+      ]
+    }
+  ]
+}
