@@ -56,6 +56,11 @@
 
   }
 
+  .add-content{
+    margin-top: 0px;
+    padding: 8px 10px 10px;
+  }
+
   .heading{
     display: flex;
     justify-content: space-between;
@@ -68,16 +73,44 @@
     cursor: pointer;
   }
 
+  .products-div {
+    display: flex;
+    flex-wrap: wrap;
+
+  }
+
   .selected-div{
     background-color: white;
     box-shadow: 0 1px 2px #00000080, 0 4px 5px #0000002b;
     border-left: 2px solid #b3b3b3;
     max-width: 270px;
+    position: relative;
     padding: 8px 8px 6px;
     &:hover{
       border-left: 2px solid #2d6df6;
+      .i-hover{display: inline;}
       
     }
     word-break: break-word;
     margin-bottom: 10px;
+  }
+
+  .addbtn{
+    font-size: 11px;
+    color: #5470eb;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .add-content{
+    margin-top: 0px;
+    padding: 8px 10px 10px;
+  }
+
+  .plus{
+    right: 10px;
+    font-size: small;
+    position: absolute;
+    display: none;
+    cursor: pointer;
   }
