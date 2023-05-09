@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
@@ -11,6 +11,7 @@ import { SidepanelService } from '../services/sidepanel/sidepanel.service';
   styleUrls: ['./report-page.component.scss'],
 })
 export class ReportPageComponent {
+  @ViewChild('cardHolder') cardHolder: any;
   reportTitle: string = 'Untitled-Report';
   oldReportTitle: string = 'Untitled-Report';
   undo: string = '';
@@ -23,9 +24,17 @@ export class ReportPageComponent {
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
   expandCard: boolean = false;
-  preview: boolean = true;
+  // preview: boolean = true;
   rowData: any;
   colData!: ColDef[];
+
+  cardList!: {
+    type: string;
+    title: string;
+    columns: any;
+    showActualFact: boolean;
+    viewStatus: string;
+  }[];
 
   ngOnInit(): void {
     this.http
@@ -33,10 +42,19 @@ export class ReportPageComponent {
       .subscribe((data) => {
         this.rowData = data;
       });
-    this.colData = this.getColumns();
+    // this.colData = this.getColumns();
+    this.cardList = [
+      {
+        type: 'table',
+        title: 'Table-1',
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      },
+    ];
   }
 
-  getColumns() {
+  getColumns(showActualFact: boolean) {
     return [
       {
         field: 'market',
@@ -66,6 +84,7 @@ export class ReportPageComponent {
         width: 180,
 
         valueFormatter: this.factFormatter.bind(this),
+        valueFormatterParams: { showActualFact: showActualFact },
       },
     ];
   }
@@ -105,7 +124,32 @@ export class ReportPageComponent {
   // ];
 
   showBottomBar = false;
-  addCard(type: string): void { }
+  addCard(type: string): void {
+    let listLength = this.cardList.length + 1;
+    if (type === 'Table') {
+      this.cardList.push({
+        type: 'table',
+        title: 'Table-' + listLength.toString(),
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      });
+    } else {
+      this.cardList.push({
+        type: 'lineChart',
+        title: 'Chart-' + listLength.toString(),
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      });
+    }
+    this.showChartList = false;
+    setTimeout(() => {
+      this.cardHolder.nativeElement.scrollTop =
+        this.cardHolder.nativeElement.scrollHeight;
+    }, 0);
+  }
+
   showRunButton: boolean = true;
 
   undoClick() {
@@ -140,20 +184,30 @@ export class ReportPageComponent {
   }
 
   factFormatter(params: any) {
-    if (this.preview) {
-      return '###'
+    const showActualFact = params.colDef.valueFormatterParams.showActualFact;
+    if (showActualFact) {
+      const numberValue = parseFloat(params.value);
+      const formattedValue = numberValue.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      return formattedValue;
     }
-    const numberValue = parseFloat(params.value);
-    const formattedValue = numberValue.toLocaleString('en-US', {
-      style: 'currency',
-      currency: 'USD',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    });
-    return formattedValue;
+    return '###'
   }
 
   RunButton() {
+    for (let i of this.cardList) {
+      if (!i.showActualFact) {
+        i.showActualFact = true;
+        i.columns = this.getColumns(true);
+        i.viewStatus = 'running';
+      } else {
+        i.viewStatus = 'actual';
+      }
+    }
     this.showRunButton = false;
     this.showBottomBar = true;
     this.shimmerService.shimmerEffect();
