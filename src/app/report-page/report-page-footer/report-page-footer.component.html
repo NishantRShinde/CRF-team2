@@ -6,12 +6,13 @@
             count="1" appearance="line"></ngx-skeleton-loader>
     </div> -->
     <span (click)="OpenDatasetSelector()" class="footer-content">
-        <span *ngIf="!datasetSelectorService.isDataApplied">Choose a dataset</span>
-        <span *ngIf="datasetSelectorService.isDataApplied">
+        <span *ngIf="!openDatasetSelectorService.isDataApplied">Choose a dataset</span>
+        <span *ngIf="openDatasetSelectorService.isDataApplied">
             <span>
-                {{ datasetSelectorService.appliedDataset }}
+                {{ openDatasetSelectorService.appliedDataset }}
             </span>
         </span> 
 
     </span> 
 </div>
+<app-dataset-selector *ngIf="openDatasetSelectorService.isSelectorOpen"></app-dataset-selector>

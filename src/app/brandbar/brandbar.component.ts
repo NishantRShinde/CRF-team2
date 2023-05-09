@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
+import { OpenDatasetSelectorService } from '../services/open-dataset-selector/open-dataset-selector.service';
 @Component({
   selector: 'app-brandbar',
   templateUrl: './brandbar.component.html',
   styleUrls: ['./brandbar.component.scss'],
 })
 export class BrandbarComponent {
-  constructor() {
-    console.log(typeof this.user.permissions[0].name);
-  }
+  constructor(public openDatasetSelectorService: OpenDatasetSelectorService) {}
 
   currentlySelected: string = AllPermissions.buildATable;
 
@@ -27,6 +26,11 @@ export class BrandbarComponent {
 
   changeCurrentlySelected(permission: string): void {
     this.currentlySelected = permission;
+    if (this.currentlySelected === AllPermissions.buildATable) {
+      this.openDatasetSelectorService.isOnBuildATable = true;
+    } else {
+      this.openDatasetSelectorService.isOnBuildATable = false;
+    }
   }
 }
 

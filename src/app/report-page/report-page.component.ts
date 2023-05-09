@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
+import { OpenDatasetSelectorService } from '../services/open-dataset-selector/open-dataset-selector.service';
+import { SidepanelService } from '../services/sidepanel/sidepanel.service';
 
 @Component({
   selector: 'app-report-page',
@@ -24,10 +26,6 @@ export class ReportPageComponent {
   preview: boolean = true;
   rowData: any;
   // colData!: ColDef[];
-
-  constructor(
-    public shimmerService: ShimmerEffectService,
-    public http: HttpClient) { }
 
   ngOnInit(): void {
     this.http
@@ -68,11 +66,27 @@ export class ReportPageComponent {
     },
   ];
 
+  showChartList: boolean = false;
+  chartOptions: { class: string; name: string }[] = [
+    { class: 'bi bi-table', name: 'Table' },
+    { class: 'bi bi-graph-up', name: 'Line chart' },
+    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
+    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
+    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
+    { class: 'bi bi-border-inner', name: 'Scatter chart' },
+  ];
+
+  constructor(
+    public http: HttpClient,
+    public openDatasetSelectorService: OpenDatasetSelectorService,
+    public shimmerService: ShimmerEffectService,
+    public sidepanelService: SidepanelService) { }
+
   headerMoreOptions = [
-    { "value": "Save", "class": 'fa fa-print' },
-    { "value": "Add", "class": 'fa fa-plus-circle' },
-    { "value": "Report Filter", "class": 'fa fa-filter' },
-    { "value": "Edit Report layout", "class": 'fa fa-retweet' }
+    { value: 'Save', class: 'fa fa-print' },
+    { value: 'Add', class: 'fa fa-plus-circle' },
+    { value: 'Report Filter', class: 'fa fa-filter' },
+    { value: 'Edit Report layout', class: 'fa fa-retweet' },
   ];
 
   // rowData = [
@@ -85,6 +99,10 @@ export class ReportPageComponent {
   //   { field: 'model' },
   //   { field: 'price', valueFormatter: this.valFormatter.bind(this), },
   // ];
+
+  showBottomBar = false;
+  addCard(type: string): void {}
+  showRunButton: boolean = true;
 
   undoClick() {
     this.redo = this.reportTitle;
@@ -110,15 +128,24 @@ export class ReportPageComponent {
     this.undoIconDisable = false;
     this.redoIconDisable = true;
   }
+
   saveInputText() {
     this.undo = this.oldReportTitle;
     this.undoIconDisable = false;
     this.oldReportTitle = this.reportTitle;
   }
+
   valFormatter(params: any) {
     if (this.preview) {
       return '###'
     }
     return params.value
   }
+
+  RunButton() {
+    this.showRunButton = false;
+    this.showBottomBar = true;
+    this.shimmerService.shimmerEffect(); 
+  }
+
 }

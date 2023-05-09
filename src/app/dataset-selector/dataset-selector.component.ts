@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'; 
 import { HttpClient } from '@angular/common/http'; 
+import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service'; 
+import { OpenDatasetSelectorService } from '../services/open-dataset-selector/open-dataset-selector.service';
 
 enum Panel {
   SourceType,
@@ -9,31 +11,30 @@ enum Panel {
 @Component({
   selector: 'app-dataset-selector',
   templateUrl: './dataset-selector.component.html',
-  styleUrls: ['./dataset-selector.component.scss']
+  styleUrls: ['./dataset-selector.component.scss'],
 })
-export class DatasetSelectorComponent {
-  @Output() closedataset=new EventEmitter<boolean>();
+
+export class DatasetSelectorComponent { 
+  // @Output() sendDataSources = new EventEmitter<string>();
+  // @Output() sendFooterContent = new EventEmitter<string>(); 
 
   heading: string = 'Choose source type';
   isAtLeastOneCheckboxSelected = false;
-  isDatasetOpen = false;
 
   dataset: any; 
   panel: any; 
   Panel=Panel;
   currentPanel = Panel.SourceType;
 
-  constructor(  
+  constructor( 
+    public shimmerService: ShimmerEffectService, 
     private http: HttpClient,
+     public openDatasetSelectorService:OpenDatasetSelectorService,
   ) { 
     this.http.get('../../assets/jsonfiles/dataset.json').subscribe((res) => {
       this.dataset = res;
       this.panel = this.dataset.panels_1;
     });
-  }
-
-  openData(){
-    this.isDatasetOpen = !this.isDatasetOpen;
   }
 
   currentTitle: string = ''; 
@@ -76,7 +77,6 @@ export class DatasetSelectorComponent {
   }
   
   filterData(): void {
-    
     if (this.searchText) {
       if (this.currentPanel == Panel.Dataview) {
         this.panel = this.dataset.panels_3.filter((item: any) => {
@@ -98,23 +98,35 @@ export class DatasetSelectorComponent {
   
 
   closeDatasetSelector() { 
-    this.isDatasetOpen=false;
-    this.closedataset.emit(false)
+    this.openDatasetSelectorService.isSelectorOpen=false;
 
-   
+    //closing container 
+    // const temp: boolean = false;
+    // this.ChangeBoolean.emit(temp);
   }
-  applydataset(){
-    this.isDatasetOpen=false;
-    this.closedataset.emit(false)
 
-  }
+  // footercontent(datasetlists:string[]){
+  //   let content: string = "NielsenIQ "
+  //   content += datasetlists[0];
+  //   for(let i=1; i<3; i++){
+  //     content += " | " + datasetlists[i];
+  //   }
+  //   // console.log(content);
+  //    return content;
+  // } 
   datasetSelected:string="NielsenIQ "
 
+
+  applydataset() {
+    this.openDatasetSelectorService.isFirst = false;
+    this.datasetSelected+=this.currentTitle;
+    this.openDatasetSelectorService.isSelectorOpen=false;
+    this.shimmerService.shimmerEffect(); 
+    this.openDatasetSelectorService.appliedDataset=this.datasetSelected;
+    this.openDatasetSelectorService.isDataApplied=true;
+  } 
   checkboxSelector(title: string) {
     this.currentTitle = title; 
     this.isAtLeastOneCheckboxSelected = true; 
   }
 }
-
-
-

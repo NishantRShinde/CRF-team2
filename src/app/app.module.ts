@@ -13,7 +13,8 @@ import { RouterModule } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ReportPageFooterComponent } from './report-page/report-page-footer/report-page-footer.component';
 import { AgGridModule } from 'ag-grid-angular';
-
+import { SidepanelComponent } from './sidepanel/sidepanel.component';
+import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,9 @@ import { AgGridModule } from 'ag-grid-angular';
     DatasetSelectorComponent,
     BrandbarComponent,
     ReportPageFooterComponent,
-    ReportPageComponent
+    ReportPageComponent,
+    SidepanelComponent,
+    BottomBarComponent,
   ],
   imports: [
     BrowserModule,

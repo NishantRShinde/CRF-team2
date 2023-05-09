@@ -1,42 +1,83 @@
 <head>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
-<div class="page-header">
-    <div>
-        <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()" size="18px" />
-    </div>
-    <div class="page-header-icons-container">
-        <button type="button" class="icon-button" [disabled]="undoIconDisable" style="transform: scaleX(-1)"
-            (click)="undoClick()">
-            <i class="fa fa-share"></i>
-        </button>
-        <button type="button" class="icon-button" [disabled]="redoIconDisable" (click)="redoClick()">
-            <i class="fa fa-share"></i>
-        </button>
-        <span class="vertical-line"></span>
-        <button type="button" class="icon-button" [disabled]="downloadIconDisable">
-            <i class="fa fa-download"></i>
-        </button>
-        <button type="button" class="icon-button" [disabled]="saveIconDisable" (click)="saveReportTitle()">
-            <i class="fa fa-print"></i>
-        </button>
-        <span class="vertical-line"></span>
-        <button type="button" class="icon-button" [disabled]="addcardIconDisable">
-            <i class="fa fa-plus-circle"></i>
-        </button>
-        <button type="button" class="icon-button" [disabled]="moreIconDisable" (blur)="headerMore = false"
-            (click)="headerMore = !headerMore">
-            <i class="fa fa-ellipsis-h"></i>
 
-        </button>
+<div *ngIf="!openDatasetSelectorService.isFirst" id="reportPage" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
+    <div class="page-header">
+        <div>
+            <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()"
+                size="18px" />
+        </div>
+        <div class="page-header-icons-container">
+            <button type="button" class="icon-button" [disabled]="undoIconDisable" style="transform: scaleX(-1)"
+                (click)="undoClick()">
+                <i class="fa fa-share"></i>
+            </button>
+            <button type="button" class="icon-button" [disabled]="redoIconDisable" (click)="redoClick()">
+                <i class="fa fa-share"></i>
+            </button>
+            <span class="vertical-line"></span>
+            <button type="button" class="icon-button" [disabled]="downloadIconDisable">
+                <i class="fa fa-download"></i>
+            </button>
+            <button type="button" class="icon-button" [disabled]="saveIconDisable" (click)="saveReportTitle()">
+                <i class="fa fa-print"></i>
+            </button>
+            <span class="vertical-line"></span>
+            <button type="button" class="icon-button" (click)="showChartList=!showChartList"
+                [disabled]="addcardIconDisable" (blur)="showChartList=false">
+                <i class="fa fa-plus-circle"></i>
+            </button>
+            <button type="button" class="icon-button" [disabled]="moreIconDisable" (blur)="headerMore = false"
+                (click)="headerMore = !headerMore">
+                <i class="fa fa-ellipsis-h"></i>
+
+            </button>
+        </div>
+
+        <div *ngIf="showChartList" class="more-container" id="chart-container">
+            <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
+                <div (mousedown)="addCard(option.name)">
+                    <span class="symbol chart-symbol">
+                        <i class="{{ option.class }}"> </i>
+                    </span>
+                    <span>{{ option.name }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="headerMore" class="more-container">
+            <div *ngFor="let a of headerMoreOptions">
+                <div class="icon">
+                    <span class="symbol">
+                        <i class="{{ a.class }}"></i>
+                    </span>
+                    <span>{{ a.value }}</span>
+                </div>
+            </div>
+        </div>
     </div>
-    <div *ngIf="headerMore" class="more-container">
-        <div *ngFor="let a of headerMoreOptions">
-            <div class="icon">
-                <span class="symbol">
-                    <i class="{{ a.class }}"></i>
-                </span>
-                <span>{{ a.value }}</span>
+
+    <app-data-summary></app-data-summary>
+    <div class="card-holder">
+        <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
+            <div class="card-head">
+                <input class="tab-title" type="text" value='Table-1' />
+                <div class="card-icons">
+                    <button type="button" class="icon-button" (click)="expandCard = !expandCard">
+                        <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
+                    </button>
+                    <button type="button" class="icon-button">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="card-body-shimmer" *ngIf="shimmerService.isloading">
+                <ngx-skeleton-loader [theme]=" { height: '100%' , width: '100%' }" count="1" appearance="line">
+                </ngx-skeleton-loader>
+            </div>
+            <div *ngIf="!shimmerService.isloading" class="card-body">
+
             </div>
         </div>
     </div>
@@ -70,6 +111,12 @@
         </ag-grid-angular>
         </div>
     </div>
+    <div class="Run-Button-container" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
+        <button class="Run-Button" [disabled]="shimmerService.isloading" (click)="RunButton()" *ngIf="showRunButton"
+        [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
+        </button>
+    </div>
+    <app-bottom-bar *ngIf="showBottomBar"></app-bottom-bar>
 </div>
 
 <app-report-page-footer></app-report-page-footer>

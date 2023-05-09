@@ -7,8 +7,8 @@ import { OpenDatasetSelectorService } from '../../services/open-dataset-selector
   styleUrls: ['./report-page-footer.component.scss']
 })
 export class ReportPageFooterComponent {
-  constructor(public datasetSelectorService: OpenDatasetSelectorService,) { }
+  constructor(public openDatasetSelectorService: OpenDatasetSelectorService,) { }
   OpenDatasetSelector() {
-    this.datasetSelectorService.isSelectorOpen = true;
+    this.openDatasetSelectorService.isSelectorOpen = true;
   }
 }
