@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service';
 import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
@@ -11,6 +11,7 @@ import { SidepanelService } from '../services/sidepanel/sidepanel.service';
   styleUrls: ['./report-page.component.scss'],
 })
 export class ReportPageComponent {
+  @ViewChild('cardHolder') cardHolder: any;
   reportTitle: string = 'Untitled-Report';
   oldReportTitle: string = 'Untitled-Report';
   undo: string = '';
@@ -34,7 +35,15 @@ export class ReportPageComponent {
   ];
   preview: boolean = true;
   rowData: any;
-  // colData!: ColDef[];
+  colData!: ColDef[];
+
+  cardList!: {
+    type: string;
+    title: string;
+    columns: any;
+    showActualFact: boolean;
+    viewStatus: string;
+  }[];
 
   ngOnInit(): void {
     this.http
@@ -42,38 +51,52 @@ export class ReportPageComponent {
       .subscribe((data) => {
         this.rowData = data;
       });
-    // this.cardList[0].columns = this.getColumns();
+    // this.colData = this.getColumns();
+    this.cardList = [
+      {
+        type: 'table',
+        title: 'Table-1',
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      },
+    ];
   }
 
-  colData = [
-    {
-      field: 'market',
-      headerName: 'Markets',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 137,
-    },
-    {
-      field: 'period',
-      headerName: 'Periods',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 134,
-    },
-    {
-      field: 'product',
-      headerName: 'Products',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 205,
-    },
-    {
-      field: '$',
-      headerClass: 'header-cell',
-      cellClass: 'body-cell',
-      width: 180,
-    },
-  ];
+  getColumns(showActualFact: boolean) {
+    return [
+      {
+        field: 'market',
+        headerName: 'Markets',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 137,
+      },
+      {
+        field: 'period',
+        headerName: 'Periods',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 134,
+      },
+      {
+        field: 'product',
+        headerName: 'Products',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 205,
+      },
+      {
+        field: '$',
+        headerClass: 'header-cell',
+        cellClass: 'body-cell',
+        width: 180,
+
+        valueFormatter: this.factFormatter.bind(this),
+        valueFormatterParams: { showActualFact: showActualFact },
+      },
+    ];
+  }
 
   constructor(
     public http: HttpClient,
@@ -100,7 +123,32 @@ export class ReportPageComponent {
   // ];
 
   showBottomBar = false;
-  addCard(type: string): void {}
+  addCard(type: string): void {
+    let listLength = this.cardList.length + 1;
+    if (type === 'Table') {
+      this.cardList.push({
+        type: 'table',
+        title: 'Table-' + listLength.toString(),
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      });
+    } else {
+      this.cardList.push({
+        type: 'lineChart',
+        title: 'Chart-' + listLength.toString(),
+        columns: this.getColumns(false),
+        showActualFact: false,
+        viewStatus: 'preview',
+      });
+    }
+    this.showChartList = false;
+    setTimeout(() => {
+      this.cardHolder.nativeElement.scrollTop =
+        this.cardHolder.nativeElement.scrollHeight;
+    }, 0);
+  }
+
   showRunButton: boolean = true;
 
   undoClick() {
@@ -134,14 +182,31 @@ export class ReportPageComponent {
     this.oldReportTitle = this.reportTitle;
   }
 
-  valFormatter(params: any) {
-    if (this.preview) {
-      return '###'
+  factFormatter(params: any) {
+    const showActualFact = params.colDef.valueFormatterParams.showActualFact;
+    if (showActualFact) {
+      const numberValue = parseFloat(params.value);
+      const formattedValue = numberValue.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      return formattedValue;
     }
-    return params.value
+    return '###'
   }
 
   RunButton() {
+    for (let i of this.cardList) {
+      if (!i.showActualFact) {
+        i.showActualFact = true;
+        i.columns = this.getColumns(true);
+        i.viewStatus = 'running';
+      } else {
+        i.viewStatus = 'actual';
+      }
+    }
     this.showRunButton = false;
     this.showBottomBar = true;
     this.shimmerService.shimmerEffect(); 
