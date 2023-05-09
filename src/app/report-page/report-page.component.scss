@@ -126,6 +126,7 @@
 
 .card-holder {
   height: calc(100vh - 190px);
+  overflow-y: scroll;
 
   .card {
     // width: 100%;
@@ -147,7 +148,7 @@
 
     &-body {
       flex-grow: 1;
-      margin: 8px 18px 25px 18px;
+      margin: 2px 18px 0px 18px;
     }
 
     .tab-title {

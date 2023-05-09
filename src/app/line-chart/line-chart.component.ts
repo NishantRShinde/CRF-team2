@@ -33,7 +33,7 @@ export class LineChartComponent {
             color: '',
             marker: {
               symbol: 'circle',
-              radius: 2,
+              radius: 2.5,
             },
           };
 
