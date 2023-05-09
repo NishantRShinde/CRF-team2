@@ -6,7 +6,6 @@ import { Injectable } from '@angular/core';
 export class ShimmerEffectService {  
     isloading: boolean = false;
 
-
   constructor() {
     setTimeout(() => {
       this.isloading = false;

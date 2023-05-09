@@ -20,6 +20,8 @@
     "@angular/platform-browser": "^15.2.0",
     "@angular/platform-browser-dynamic": "^15.2.0",
     "@angular/router": "^15.2.0",
+    "ag-grid-angular": "^29.3.4",
+    "ag-grid-community": "^29.3.4",
     "angular-highcharts": "^15.0.1",
     "bootstrap": "^5.2.3",
     "bootstrap-icons": "^1.10.5",

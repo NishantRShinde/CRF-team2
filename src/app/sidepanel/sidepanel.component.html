@@ -1,0 +1,11 @@
+<div [class.sidepanel]="sidepanelService.isSidepanelOpen" id="sidepanel">
+    <div>
+        <ul class="heading">
+            <li class="li-left"><strong>{{ sidepanelService.currentSelected }}
+                </strong><i class="fa fa-angle-down"></i></li>
+            <li class="heading li-right">
+                <i class="fa fa-ellipsis-h menubtn"></i><br><i class="closebtn" (click)="close()">×</i>
+            </li>
+        </ul>
+    </div>
+</div>
