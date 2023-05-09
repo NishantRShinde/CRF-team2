@@ -68,28 +68,5 @@
         </div>
     </div>
 </div>
-<app-data-summary></app-data-summary>
-<div class="card-holder">
-    <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
-        <div class="card-head">
-            <input class="tab-title" type="text" value='Table-1' />
-            <div class="card-icons">
-                <button type="button" class="icon-button" (click)="expandCard = !expandCard">
-                    <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
-                </button>
-                <button type="button" class="icon-button">
-                    <i class="fa fa-ellipsis-h"></i>
-                </button>
-            </div>
-        </div>
-        <div class="card-body-shimmer" *ngIf="shimmerService.isloading">
-            <ngx-skeleton-loader [theme]=" { height: '100%' , width: '100%' }" count="1" appearance="line">
-            </ngx-skeleton-loader>
-        </div>
-        <div *ngIf="!shimmerService.isloading" class="card-body">
-
-        </div>
-    </div>
-</div>
 
 <app-report-page-footer></app-report-page-footer>

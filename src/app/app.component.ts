@@ -4,16 +4,8 @@ import { OpenDatasetSelectorService } from './services/open-dataset-selector/ope
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'Project_demo';
-
   constructor(public openDatasetSelectorService: OpenDatasetSelectorService) {}
-  }
-  isDatasetOpen:boolean=false;
-
-  openData():void{
-    this.isDatasetOpen=true;
-  }
 }
