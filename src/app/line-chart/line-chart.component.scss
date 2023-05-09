@@ -1,0 +1,16 @@
+.bottom-border {
+    border-bottom: 1px solid black;
+    cursor: pointer;
+    &:hover {
+      border-color: rgb(103, 194, 236);
+    }
+}
+.indiv-summary {
+  font-size: 14px;
+  padding: 3px;
+}   
+
+.line-chart {
+  height: calc(100% - 38px);
+  margin-top: 16px;
+}

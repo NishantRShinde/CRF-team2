@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 import { ReportPageFooterComponent } from './report-page/report-page-footer/report-page-footer.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { ReportPageFooterComponent } from './report-page/report-page-footer/repo
     BrandbarComponent,
     ReportPageFooterComponent,
     ReportPageComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     FormsModule,
+    ChartModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
     RouterModule.forRoot([

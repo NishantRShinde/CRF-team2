@@ -76,10 +76,11 @@
                 </ngx-skeleton-loader>
             </div>
             <div *ngIf="!shimmerService.isloading" class="card-body">
-
+                <app-line-chart></app-line-chart>
             </div>
         </div>
     </div>
+
     <div class="Run-Button-container">
         <button class="Run-Button" [disabled]="shimmerService.isloading" (click)="RunButton()" *ngIf="showRunButton"
             [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
