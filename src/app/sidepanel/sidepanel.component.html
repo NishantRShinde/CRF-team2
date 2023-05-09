@@ -8,4 +8,13 @@
             </li>
         </ul>
     </div>
+    <div class="sidepanel-content">
+
+        <div *ngIf="!sidepanelService.addActive">
+            <div *ngIf="!sidepanelService.addActive" class="heading content-div">
+                <p><i class="fa fa-angle-down"></i> Selection</p><i class="fa fa-bars click"></i>
+            </div>
+        </div>
+        <div class="selected-div"></div>
+    </div>
 </div>
