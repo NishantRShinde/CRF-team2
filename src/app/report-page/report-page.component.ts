@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
 import { OpenDatasetSelectorService } from '../services/open-dataset-selector/open-dataset-selector.service';
 import { SidepanelService } from '../services/sidepanel/sidepanel.service';
-
+import { LinechartDataServiceService } from '../services/linechart-data-service.service';
 @Component({
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
@@ -24,7 +24,16 @@ export class ReportPageComponent {
   addcardIconDisable: boolean = false;
   moreIconDisable: boolean = false;
   expandCard: boolean = false;
-  // preview: boolean = true;
+  showChartList: boolean = false;
+  chartOptions: { class: string; name: string }[] = [
+    { class: 'bi bi-table', name: 'Table' },
+    { class: 'bi bi-graph-up', name: 'Line chart' },
+    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
+    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
+    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
+    { class: 'bi bi-border-inner', name: 'Scatter chart' },
+  ];
+  preview: boolean = true;
   rowData: any;
   colData!: ColDef[];
 
@@ -89,21 +98,13 @@ export class ReportPageComponent {
     ];
   }
 
-  showChartList: boolean = false;
-  chartOptions: { class: string; name: string }[] = [
-    { class: 'bi bi-table', name: 'Table' },
-    { class: 'bi bi-graph-up', name: 'Line chart' },
-    { class: 'bi bi-bar-chart-line-fill', name: 'Column chart' },
-    { class: 'bi bi-bar-chart-steps', name: 'Bar chart' },
-    { class: 'bi bi-pie-chart-fill', name: 'Pie chart' },
-    { class: 'bi bi-border-inner', name: 'Scatter chart' },
-  ];
-
   constructor(
     public http: HttpClient,
     public openDatasetSelectorService: OpenDatasetSelectorService,
     public shimmerService: ShimmerEffectService,
-    public sidepanelService: SidepanelService) { }
+    public sidepanelService: SidepanelService,
+    public lineChartDataService:LinechartDataServiceService,
+  ) {}
 
   headerMoreOptions = [
     { value: 'Save', class: 'fa fa-print' },
@@ -126,6 +127,9 @@ export class ReportPageComponent {
   showBottomBar = false;
   addCard(type: string): void {
     let listLength = this.cardList.length + 1;
+    this.showRunButton = true;
+    this.shimmerService.shimmerEffect();
+    this.showBottomBar = false;
     if (type === 'Table') {
       this.cardList.push({
         type: 'table',
@@ -134,7 +138,7 @@ export class ReportPageComponent {
         showActualFact: false,
         viewStatus: 'preview',
       });
-    } else {
+    } else if (type === 'Line chart') {
       this.cardList.push({
         type: 'lineChart',
         title: 'Chart-' + listLength.toString(),
@@ -195,22 +199,41 @@ export class ReportPageComponent {
       });
       return formattedValue;
     }
-    return '###'
+    return '###';
   }
 
   RunButton() {
     for (let i of this.cardList) {
-      if (!i.showActualFact) {
+      if (!i.showActualFact && i.type==='table') {
         i.showActualFact = true;
         i.columns = this.getColumns(true);
         i.viewStatus = 'running';
-      } else {
+      }
+      else if (!i.showActualFact && i.type==='lineChart' ){
+        i.showActualFact = true; 
+        i.viewStatus = 'running';
+        this.lineChartDataService.renderLineChart()
+        
+      } 
+      else {
         i.viewStatus = 'actual';
       }
-    }
+      this.shimmerService.shimmerEffect();   
+     }
+    
     this.showRunButton = false;
     this.showBottomBar = true;
-    this.shimmerService.shimmerEffect();
-  }
 
+  }
+  cancelButton() {
+    this.showBottomBar = false;
+    this.showRunButton = true;
+    for (let i of this.cardList) {
+      if (i.viewStatus === 'running') {
+        i.viewStatus = 'preview';
+        i.showActualFact = false;
+        i.columns = this.getColumns(false);
+      }
+    }
+  }
 }

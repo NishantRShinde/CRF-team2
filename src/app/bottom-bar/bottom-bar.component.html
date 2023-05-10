@@ -1,2 +1,10 @@
-<div  *ngIf="shimmerService.isloading" class="bottom-bar"></div>
+<div  *ngIf="shimmerService.isloading" class="bottom-bar">
+    <div class="bottom-bar-loader-container">
+        <div class="bottom-bar-loader"></div>
+        <div class="bottom-bar-text">🕒Running report crunching some numbers, please wait...</div></div>
+        <div class="bottom-buttons">
+          <label class="notify">Notify me later</label>
+          <button class="cancel_2" (click)="cancelButton()">Cancel</button>
+    </div>
+</div>
     
