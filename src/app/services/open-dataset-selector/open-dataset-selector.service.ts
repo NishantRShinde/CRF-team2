@@ -10,5 +10,4 @@ export class OpenDatasetSelectorService {
   isSelectorOpen: boolean = true;
   appliedDataset: string = '';
   isOnBuildATable: boolean = true;
-  isFirst: Boolean = true;
 }
