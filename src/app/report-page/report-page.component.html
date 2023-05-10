@@ -2,7 +2,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<div *ngIf="openDatasetSelectorService.isDataApplied" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
+<div *ngIf="openDatasetSelectorService.isDataApplied"
+    [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
     <div class="page-header">
         <div>
             <input class="page-header-title" [(ngModel)]="reportTitle" type="text" (blur)="saveInputText()"
@@ -35,7 +36,8 @@
             </button>
         </div>
 
-        <div *ngIf="showChartList" class="more-container" [ngStyle]=" {'right': '62px'} ">
+        <div *ngIf="showChartList" class="more-container"
+            [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'382px': '62px'} ">
             <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
                 <div (mousedown)="addCard(option.name)">
                     <span class="symbol chart-symbol">
@@ -46,7 +48,8 @@
             </div>
         </div>
 
-        <div *ngIf="headerMore" class="more-container">
+        <div *ngIf="headerMore" class="more-container"
+            [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'350px': '30px'}">
             <div *ngFor="let a of headerMoreOptions">
                 <div class="icon">
                     <span class="symbol">
@@ -77,10 +80,13 @@
                 <ngx-skeleton-loader [theme]=" { height: '100%' , width: '100%' }" count="1" appearance="line">
                 </ngx-skeleton-loader>
             </div>
-            <div *ngIf="!shimmerService.isloading" class="card-body">
-                <ag-grid-angular style="width: 100%; height: 100%;" class="ag-theme-alpine" [rowData]="rowData"
-                    [columnDefs]="a.columns">
+            <div *ngIf="!shimmerService.isloading"
+                [ngClass]="{'card-body': true, 'compress-line-chart': !expandCard && a.type === 'lineChart'}"
+                [ngStyle]="{'margin': a.type === 'lineChart'?'2px 18px 0': '8px 18px 20px'}">
+                <ag-grid-angular *ngIf="a.type === 'table'" style="width: 100%; height: 100%;" class="ag-theme-alpine"
+                    [rowData]="rowData" [columnDefs]=a.columns>
                 </ag-grid-angular>
+                <app-line-chart *ngIf="a.type === 'lineChart'"></app-line-chart>
             </div>
         </div>
     </div>
@@ -90,9 +96,9 @@
             [style.background]="shimmerService.isloading? '#bbccdd' : 'blue'">Run ➤
         </button>
     </div>
-  
+
     <app-bottom-bar *ngIf="showBottomBar" (cancel)="cancelButton()"></app-bottom-bar>
-  
+
 </div>
 
 <app-report-page-footer *ngIf="!expandCard"></app-report-page-footer>

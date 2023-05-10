@@ -100,12 +100,18 @@
 }
 
 .expand-card {
-  position: fixed;
+  position: absolute;
   width: 100%;
   margin: 0px;
   padding: 0%;
   top: 0px;
   height: 100%;
+  z-index: 7;
+}
+.comp-line-chart{
+  position: relative;
+  height: calc(100% - 38px);
+  margin-top: 2px;
 }
 
 .comp-card {
@@ -149,7 +155,11 @@
 
     &-body {
       flex-grow: 1;
-      margin: 8px 18px 25px 18px;
+      overflow-y: hidden;
+    }
+    &-body-line-chart {
+      flex-grow: 1;
+      margin: 2px 18px 0px;
     }
 
     .tab-title {

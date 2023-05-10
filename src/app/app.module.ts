@@ -15,6 +15,8 @@ import { ReportPageFooterComponent } from './report-page/report-page-footer/repo
 import { AgGridModule } from 'ag-grid-angular';
 import { SidepanelComponent } from './sidepanel/sidepanel.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
+import { ChartModule } from 'angular-highcharts';
 
 @NgModule({
   declarations: [
@@ -26,12 +28,14 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
     ReportPageComponent,
     SidepanelComponent,
     BottomBarComponent,
+    LineChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     MatIconModule,
     FormsModule,
+    ChartModule,
     HttpClientModule,
     NgxSkeletonLoaderModule,
     AgGridModule,
