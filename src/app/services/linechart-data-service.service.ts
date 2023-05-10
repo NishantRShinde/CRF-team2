@@ -137,12 +137,7 @@ export class LinechartDataServiceService {
       });
   }
 
-  createNewChart() {
-    this.chartOptions.series = this.previewBeerDataSeries;
-    this.lineChart = new Chart(this.chartOptions);
-    return this.lineChart;
-  }
-  renderLineChart() {
+  renderLineChart(): void {
     this.chartOptions.series = this.actualBeerDataSeries;
     this.chartOptions.yAxis.labels.formatter = function () {
       const formattedValue = this.value.toLocaleString('en-US', {
