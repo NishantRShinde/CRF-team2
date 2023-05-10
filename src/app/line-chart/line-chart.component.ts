@@ -38,7 +38,6 @@ export class LineChartComponent implements OnInit {
               radius: 2.5,
             },
           };
-
           let actualLineData: SeriesOptionsType = {
             name: '',
             type: 'line',
