@@ -35,11 +35,10 @@
 
             </button>
         </div>
-
         <div *ngIf="showChartList" class="more-container"
             [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'382px': '62px'} ">
-            <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
-                <div (mousedown)="addCard(option.name)">
+            <div *ngFor="let option of chartOptions; let i = index">
+                <div (mousedown)="addCard(option.name)" class="icon chart-icon-name">
                     <span class="symbol chart-symbol">
                         <i class="{{ option.class }}"> </i>
                     </span>
