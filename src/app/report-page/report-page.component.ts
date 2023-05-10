@@ -208,14 +208,16 @@ export class ReportPageComponent {
         i.showActualFact = true;
         i.columns = this.getColumns(true);
         i.viewStatus = 'running';
-      }else if (!i.showActualFact && i.type==='lineChart'){
-        i.showActualFact = true;
+      }
+      else if (!i.showActualFact && i.type==='lineChart' ){
+        i.showActualFact = true; 
         i.viewStatus = 'running';
         this.lineChartDataService.renderLineChart()
-      } else {
+        
+      } 
+      else {
         i.viewStatus = 'actual';
       }
-      
       this.shimmerService.shimmerEffect();   
      }
     
