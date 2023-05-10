@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { ColDef } from 'ag-grid-community';
 import { OpenDatasetSelectorService } from '../services/open-dataset-selector/open-dataset-selector.service';
 import { SidepanelService } from '../services/sidepanel/sidepanel.service';
-
+import { LinechartDataServiceService } from '../services/linechart-data-service.service';
 @Component({
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
@@ -102,7 +102,8 @@ export class ReportPageComponent {
     public http: HttpClient,
     public openDatasetSelectorService: OpenDatasetSelectorService,
     public shimmerService: ShimmerEffectService,
-    public sidepanelService: SidepanelService
+    public sidepanelService: SidepanelService,
+    public lineChartDataService:LinechartDataServiceService,
   ) {}
 
   headerMoreOptions = [
@@ -203,18 +204,24 @@ export class ReportPageComponent {
 
   RunButton() {
     for (let i of this.cardList) {
-      if (!i.showActualFact) {
+      if (!i.showActualFact && i.type==='table') {
         i.showActualFact = true;
         i.columns = this.getColumns(true);
         i.viewStatus = 'running';
+      }else if (!i.showActualFact && i.type==='lineChart'){
+        i.showActualFact = true;
+        i.viewStatus = 'running';
+        this.lineChartDataService.renderLineChart()
       } else {
         i.viewStatus = 'actual';
       }
-    }
+      
+      this.shimmerService.shimmerEffect();   
+     }
+    
     this.showRunButton = false;
     this.showBottomBar = true;
 
-    this.shimmerService.shimmerEffect();
   }
   cancelButton() {
     this.showBottomBar = false;
