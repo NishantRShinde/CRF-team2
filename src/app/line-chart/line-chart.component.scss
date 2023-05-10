@@ -1,16 +1,27 @@
-.bottom-border {
+.indiv-summary {
+  font-size: 14px;
+  padding: 3px;
+  .bottom-border {
     border-bottom: 1px solid black;
     cursor: pointer;
     &:hover {
       border-color: rgb(103, 194, 236);
     }
-}
-.indiv-summary {
-  font-size: 14px;
-  padding: 3px;
+  }
 }   
 
 .line-chart {
   height: calc(100% - 39px);
   margin-top: 16px;
+}
+
+.actual-data {
+  position: absolute;
+  top: 50px;
+  right: 16px;
+  padding: 6px 8px;
+  background-color: blue;
+  border-radius: 4px;
+  color: white;
+  border: none;
 }

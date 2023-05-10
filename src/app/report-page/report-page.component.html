@@ -36,7 +36,8 @@
             </button>
         </div>
 
-        <div *ngIf="showChartList" class="more-container" [ngStyle]=" {'right': '62px'} ">
+        <div *ngIf="showChartList" class="more-container"
+            [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'382px': '62px'} ">
             <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
                 <div (mousedown)="addCard(option.name)">
                     <span class="symbol chart-symbol">
@@ -47,7 +48,8 @@
             </div>
         </div>
 
-        <div *ngIf="headerMore" [ngClass]="{'more-container': true, 'move-options': sidepanelService.isSidepanelOpen}">
+        <div *ngIf="headerMore" class="more-container"
+            [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'350px': '30px'}">
             <div *ngFor="let a of headerMoreOptions">
                 <div class="icon">
                     <span class="symbol">
@@ -64,7 +66,7 @@
     <div #cardHolder class="card-holder">
         <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
             <div class="card-head">
-                <input class="tab-title" type="text" value="Card-1" />
+                <input class="tab-title" type="text" value="Chart-1" />
                 <div class="card-icons">
                     <button type="button" class="icon-button" (click)="expandCard = !expandCard">
                         <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>

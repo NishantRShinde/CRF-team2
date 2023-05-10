@@ -14,6 +14,7 @@ export class LineChartComponent implements OnInit {
   xLabels: string[] = [];
   lineChart: Chart = new Chart();
   previewBeerDataSeries: SeriesOptionsType[] = [];
+  actualBeerDataSeries: SeriesOptionsType[] = [];
   chartOptions: any;
 
   constructor(public http: HttpClient) {}
@@ -37,18 +38,31 @@ export class LineChartComponent implements OnInit {
               radius: 2.5,
             },
           };
+          let actualLineData: SeriesOptionsType = {
+            name: '',
+            type: 'line',
+            data: [],
+            marker: {
+              symbol: 'circle',
+              radius: 3,
+            },
+          };
 
           let name = 'BEER|' + owner.company.toUpperCase();
           previewLineData.name = name;
+          actualLineData.name = name;
 
           previewLineData.color = `rgb(${110 + grayShades}, ${
             110 + grayShades
           }, ${110 + grayShades})`;
 
           for (let intervalSale of owner.revenueOfAWeekInterval) {
+            actualLineData.data!.push(intervalSale.sales);
             previewLineData.data!.push(previewData);
           }
           this.previewBeerDataSeries.push(previewLineData);
+          this.actualBeerDataSeries.push(actualLineData);
+
           grayShades += 10;
           if (grayShades === 120) {
             grayShades = 0;
@@ -122,5 +136,29 @@ export class LineChartComponent implements OnInit {
         };
         this.lineChart = new Chart(this.chartOptions);
       });
+  }
+
+  renderLineChart(): void {
+    this.chartOptions.series = this.actualBeerDataSeries;
+    this.chartOptions.yAxis.labels.formatter = function () {
+      const formattedValue = this.value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      return formattedValue;
+    };
+
+    this.chartOptions.tooltip.formatter = function () {
+      const formattedValue = this.y.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      });
+      return `<b>${formattedValue}<b>`;
+    };
+    this.lineChart = new Chart(this.chartOptions);
   }
 }
