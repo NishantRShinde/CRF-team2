@@ -1,5 +1,6 @@
 $color_1: #262626;
 $font-family_1: "arial", "sans-serif";
+$alert_color : #aa213f;
 
 .div1 {
 	font-family: $font-family_1;
@@ -31,4 +32,26 @@ $font-family_1: "arial", "sans-serif";
   right: 0;
   background-color: #ffffff;
   overflow-x: scroll;
+}
+.alert{
+	font-size: 14px;
+	cursor: pointer;
+	color: $alert_color;
+	border: none;
+	border-bottom-style: solid;
+	border-bottom-width: 0.5px;
+	width: fit-content;
+	&:hover {
+		text-decoration: none;
+		border-bottom: 0.5px solid $alert_color;
+	}
+}
+.alert-icon{
+	font-size: 13px;
+	margin-bottom: 3px;
+}
+
+.selected{
+	background-color: #BDD1FC;
+	border: none;
 }

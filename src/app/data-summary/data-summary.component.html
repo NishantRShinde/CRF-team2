@@ -1,15 +1,17 @@
 <br>
-<app-sidepanel *ngIf = "sidepanelService.isSidepanelOpen" class="sidebar"></app-sidepanel>
+<app-sidepanel *ngIf="sidepanelService.isSidepanelOpen" class="sidebar"></app-sidepanel>
 <div *ngIf="shimmerService.isloading" style="height: 10px; margin-left: 6px; margin-bottom: 20px;">
   <ngx-skeleton-loader
     [theme]="{ 'height': '100%', 'width': '30vw', 'margin-left':'10px', 'background-color': 'rgb(204,204,204)','border-radius':'20px' }"
     count="1" appearance="line"></ngx-skeleton-loader>
 </div>
-<div *ngIf="!shimmerService.isloading" class="div1"> 
-  <div *ngFor="let item of keys()" class="inline" >&nbsp; 
-    {{ content[item][0] }} <a class="openbtn" (click)="openSidepanel(item)"><strong *ngIf="content[item][1].length === 1; else elseBlock"> 
-        {{ content[item][1][0] }}</strong>
-      <ng-template #elseBlock> <strong> {{content[item][1].length}} {{item}} </strong></ng-template></a> 
-  </div> 
+<div *ngIf="!shimmerService.isloading" class="div1">
+  <div *ngFor="let item of sidepanelService.getMainKeys()" class="inline">
+    {{ this.numberOfTrueValues(item) }}
+
+    <div> &nbsp;&nbsp;{{sidepanelService.selectedList[item][0]}}&nbsp;
+      <strong class="openbtn" (click)="openSidepanel(item)" [ngClass]="{'alert':this.count===0? true : false,'selected':item == sidepanelService.currentSelected || item == sidepanelService.add}">{{showSelected}} 
+        <i [ngClass]="{'fa-light fa-circle-exclamation fa-rotate-180 alert-icon':this.count===0? true : false}" ></i></strong></div>
+  </div>
   <br><br>
-</div> 
+</div>
