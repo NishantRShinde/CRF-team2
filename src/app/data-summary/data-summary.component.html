@@ -10,8 +10,8 @@
     {{ this.numberOfTrueValues(item) }}
 
     <div> &nbsp;&nbsp;{{sidepanelService.selectedList[item][0]}}&nbsp;
-      <strong class="openbtn" (click)="openSidepanel(item)" [ngClass]="{'alert':this.count===0? true : false,'selected':item == sidepanelService.currentSelected || item == sidepanelService.add}">{{showSelected}} 
-        <i [ngClass]="{'fa-light fa-circle-exclamation fa-rotate-180 alert-icon':this.count===0? true : false}" ></i></strong></div>
+      <strong class="openbtn" (click)="openSidepanel(item)" [ngClass]="{'alert':this.count===0? true : false,'selected':(item == sidepanelService.currentSelected || item == sidepanelService.add) && sidepanelService.isSidepanelOpen}">{{showSelected}} 
+        <i [ngClass]="{'fa-solid fa-circle-exclamation fa-rotate-180':this.count===0? true : false}" ></i></strong></div>
   </div>
   <br><br>
 </div>
