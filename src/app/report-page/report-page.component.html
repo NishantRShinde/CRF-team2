@@ -64,29 +64,7 @@
     <app-data-summary></app-data-summary>
 
     <div #cardHolder class="card-holder">
-        <div class="card" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
-            <div class="card-head">
-                <input class="tab-title" type="text" value="Chart-1" />
-                <div class="card-icons">
-                    <button type="button" class="icon-button" (click)="expandCard = !expandCard">
-                        <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
-                    </button>
-                    <button type="button" class="icon-button">
-                        <i class="fa fa-ellipsis-h"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="card-body-shimmer" *ngIf="shimmerService.isloading">
-                <ngx-skeleton-loader [theme]=" { height: '100%' , width: '100%' }" count="1" appearance="line">
-                </ngx-skeleton-loader>
-            </div>
-            <div *ngIf="!shimmerService.isloading" [ngClass]="{'card-body': true, 'compress-line-chart': !expandCard}"
-                [ngStyle]="{'margin': '2px 18px 0'}">
-                <app-line-chart></app-line-chart>
-            </div>
-        </div>
 
-        <!-- 
         <div class="card" *ngFor="let a of cardList" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
             <div class="card-head">
                 <input class="tab-title" type="text" [value]='a.title' />
@@ -111,9 +89,7 @@
                 </ag-grid-angular>
                 <app-line-chart *ngIf="a.type === 'lineChart'"></app-line-chart>
             </div>
-        </div> -->
-
-
+        </div>
     </div>
 
     <div class="Run-Button-container" [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
