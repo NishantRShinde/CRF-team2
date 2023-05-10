@@ -64,7 +64,6 @@
     <app-data-summary></app-data-summary>
 
     <div #cardHolder class="card-holder">
-
         <div class="card" *ngFor="let a of cardList" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
             <div class="card-head">
                 <input class="tab-title" type="text" [value]='a.title' />
