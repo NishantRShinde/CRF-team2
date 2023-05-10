@@ -103,7 +103,7 @@ export class ReportPageComponent {
     public openDatasetSelectorService: OpenDatasetSelectorService,
     public shimmerService: ShimmerEffectService,
     public sidepanelService: SidepanelService,
-    public lineChartDataService:LinechartDataServiceService,
+    public lineChartDataService: LinechartDataServiceService
   ) {}
 
   headerMoreOptions = [
@@ -142,7 +142,7 @@ export class ReportPageComponent {
       this.cardList.push({
         type: 'lineChart',
         title: 'Chart-' + listLength.toString(),
-        columns: this.getColumns(false),
+        columns: this.lineChartDataService.createNewChart(),
         showActualFact: false,
         viewStatus: 'preview',
       });
@@ -204,26 +204,22 @@ export class ReportPageComponent {
 
   RunButton() {
     for (let i of this.cardList) {
-      if (!i.showActualFact && i.type==='table') {
+      if (!i.showActualFact && i.type === 'table') {
         i.showActualFact = true;
         i.columns = this.getColumns(true);
         i.viewStatus = 'running';
-      }
-      else if (!i.showActualFact && i.type==='lineChart' ){
-        i.showActualFact = true; 
+      } else if (!i.showActualFact && i.type === 'lineChart') {
+        i.showActualFact = true;
         i.viewStatus = 'running';
-        this.lineChartDataService.renderLineChart()
-        
-      } 
-      else {
+        i.columns = this.lineChartDataService.renderLineChart();
+      } else {
         i.viewStatus = 'actual';
       }
-      this.shimmerService.shimmerEffect();   
-     }
-    
+      this.shimmerService.shimmerEffect();
+    }
+
     this.showRunButton = false;
     this.showBottomBar = true;
-
   }
   cancelButton() {
     this.showBottomBar = false;
@@ -232,7 +228,12 @@ export class ReportPageComponent {
       if (i.viewStatus === 'running') {
         i.viewStatus = 'preview';
         i.showActualFact = false;
-        i.columns = this.getColumns(false);
+        if(i.type==='table'){
+          i.columns = this.getColumns(false);
+        }else if(i.type==='lineChart'){
+        i.columns= this.lineChartDataService.createNewChart();
+        }
+        
       }
     }
   }
