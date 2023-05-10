@@ -10,7 +10,7 @@ import { SidepanelService } from '../services/sidepanel/sidepanel.service';
 export class SidepanelComponent {
 
   content: any
-  selectedList!: any
+  // selectedList!: any
   constructor(public sidepanelService : SidepanelService,
     public http: HttpClient
     ){
@@ -23,15 +23,15 @@ export class SidepanelComponent {
       this.content = res; 
       // console.log('--- result : ', this.content);  
     });
-    this.http.get('../../assets/Json/sample.json').subscribe((res)=>{
-      this.selectedList = res; 
-      // console.log('--- result : ', this.selectedList); 
-    });
+    // this.http.get('../../assets/Json/sample.json').subscribe((res)=>{
+    //   this.selectedList = res; 
+    //   // console.log('--- result : ', this.selectedList); 
+    // });
   }
 
-  getKeys(selector: string): Array<string>{
-    return Object.keys(this.selectedList[selector][1]); 
-  }
+  // getKeys(selector: string): Array<string>{
+  //   return Object.keys(this.selectedList[selector][1]); 
+  // }
 
   add(item:string){
     this.sidepanelService.add = item
@@ -64,11 +64,11 @@ export class SidepanelComponent {
   }
 
   trash(item:string,select:string){
-    this.selectedList[item][1][select] = false
+    this.sidepanelService.selectedList[item][1][select] = false
   }
   
   plus(item:string,select:string){
-    this.selectedList[item][1][select] = true
+    this.sidepanelService.selectedList[item][1][select] = true
   }
 
 }

@@ -47,7 +47,7 @@ import { ChartModule } from 'angular-highcharts';
       { path: 'findMyStuff', component: AppComponent },
     ]),
   ],
-  providers: [],
+  providers: [LineChartComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
