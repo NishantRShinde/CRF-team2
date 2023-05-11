@@ -4,18 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class ShimmerEffectService {  
-    isloading: boolean = false;
+  public shimmerTimeout: any;
+  isloading: boolean = false;
 
-  constructor() {
-    setTimeout(() => {
+  constructor() {}
+
+  shimmerEffect() {
+    this.isloading = true;
+    this.shimmerTimeout = setTimeout(() => {
       this.isloading = false;
     }, 2500);
   }
 
-  shimmerEffect() {
-    this.isloading = true;
-    setTimeout(() => {
-      this.isloading = false;
-    }, 2500);
+  cancelShimmerEffect() {
+    clearTimeout(this.shimmerTimeout);
+    this.isloading = false;
   }
 }

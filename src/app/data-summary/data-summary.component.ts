@@ -1,8 +1,6 @@
 import { Component } from '@angular/core'; 
 import { HttpClient } from '@angular/common/http'; 
 import { ShimmerEffectService } from '../services/shimmer-effect/shimmer-effect.service'; 
-// import content from "./src/assets/Json/content.json";
-import { SidepanelComponent } from '../sidepanel/sidepanel.component';
 import { SidepanelService } from '../services/sidepanel/sidepanel.service';
 
 @Component({
@@ -65,14 +63,10 @@ export class DataSummaryComponent {
     return Object.keys(this.content); 
   } 
   
-
   openSidepanel(item:string){
     this.sidepanelService.isSidepanelOpen = true
     this.sidepanelService.currentSelected = item
     this.sidepanelService.addActive = false
     this.sidepanelService.add = ""
-
   }
-
-  
 }

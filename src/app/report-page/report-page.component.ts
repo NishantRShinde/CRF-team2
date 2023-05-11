@@ -9,6 +9,7 @@ import { LinechartDataServiceService } from '../services/linechart-data-service.
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
   styleUrls: ['./report-page.component.scss'],
+  providers: [ShimmerEffectService] 
 })
 export class ReportPageComponent {
   @ViewChild('cardHolder') cardHolder: any;
@@ -123,7 +124,6 @@ export class ReportPageComponent {
   //   { field: 'model' },
   //   { field: 'price', valueFormatter: this.valFormatter.bind(this), },
   // ];
-
   showBottomBar = false;
   addCard(type: string): void {
     let listLength = this.cardList.length + 1;
@@ -156,7 +156,7 @@ export class ReportPageComponent {
   }
 
   showRunButton: boolean = true;
-
+  clickedCancelButton: boolean = false;
   undoClick() {
     this.redo = this.reportTitle;
     this.reportTitle = this.undo;
@@ -204,6 +204,7 @@ export class ReportPageComponent {
   }
 
   RunButton() {
+    this.sidepanelService.close()
     for (let i of this.cardList) {
       if (!i.showActualFact && i.type === 'table') {
         i.showActualFact = true;
@@ -225,6 +226,7 @@ export class ReportPageComponent {
   cancelButton() {
     this.showBottomBar = false;
     this.showRunButton = true;
+    this.clickedCancelButton = true;
     for (let i of this.cardList) {
       if (i.viewStatus === 'running') {
         i.viewStatus = 'preview';
@@ -235,6 +237,8 @@ export class ReportPageComponent {
           i.columns = this.lineChartDataService.createNewChart();
         }
       }
-    }
+    } 
+    this.shimmerService.cancelShimmerEffect();
   }
 }
+
