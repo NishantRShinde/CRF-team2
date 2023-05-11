@@ -17,7 +17,7 @@ import { SidepanelComponent } from './sidepanel/sidepanel.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
 import { LineChartComponent } from './line-chart/line-chart.component';
 import { ChartModule } from 'angular-highcharts';
-
+import {ShimmerEffectService } from './services/shimmer-effect/shimmer-effect.service'
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +47,7 @@ import { ChartModule } from 'angular-highcharts';
       { path: 'findMyStuff', component: AppComponent },
     ]),
   ],
-  providers: [LineChartComponent],
-  bootstrap: [AppComponent],
+  providers: [ShimmerEffectService],
+  bootstrap: [AppComponent,ReportPageComponent],
 })
 export class AppModule {}
