@@ -1,212 +1,222 @@
-.page-header {
-  margin: 10px 12px;
-  display: flex;
-  justify-content: space-between;
+$font: "arial", "sans-serif", "Aktiv Grotesk";
 
-  &-title {
-    outline: none;
-    border: none;
-    font-size: 24px;
-    font-weight: 600;
-    padding-left: 10px;
-    border-bottom: 1.5px solid grey;
-
-    &:hover {
-      outline: none;
-      border: none;
-      border-bottom: 1.5px solid blue;
-    }
-  }
-
-  &-icons-container {
-    display: flex;
-    justify-content: space-around;
-    align-items: end;
-    margin-right: 15px;
-  }
-
-  .vertical-line {
-    border-left: 1px solid black;
-    margin-bottom: 0px;
-    margin-left: 15px;
-    margin-right: 15px;
-    height: 27px;
-    opacity: 0.2;
-  }
-
-}
-
-.icon-button {
-  background-color: transparent;
-  margin: 0px 3px;
-  user-select: none;
-  text-align: center;
-  font-size: 15px;
-  border: none;
-  height: 26px;
-  width: 26px;
-  padding: 5px;
-  transition-duration: 0.3s;
-  opacity: 0.75;
-
-  &:not(:disabled):hover {
-    color: red;
-    height: 26px;
-    width: 26px;
-    background-color: gray;
-    border-radius: 3px;
-    cursor: pointer;
-    opacity: 0.75;
-  }
-}
-
-.more-container {
+.report-page {
   display: flex;
   flex-direction: column;
-  align-items: start;
-  position: fixed;
-  right: 30px;
-  margin-top: 32px;
-  user-select: none;
-  background-color: white;
-  z-index: 9999;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  cursor: pointer;
+  font-family: $font;
 
-  .icon {
-    padding: 10px 10px;
-    font-size: small;
-    width: 150px;
-    // width: 86.8%;
+  .page-header {
+    margin: 10px 12px;
+    display: flex;
+    justify-content: space-between;
 
-    &:hover {
-      background-color: rgb(242, 242, 242);
+    &-title {
+      outline: none;
+      border: none;
+      font-size: 24px;
+      font-weight: 600;
+      padding-left: 10px;
+      border-bottom: 1.5px solid grey;
+
+      &:hover {
+        outline: none;
+        border: none;
+        border-bottom: 1.5px solid blue;
+      }
     }
 
-    .symbol {
-      padding: 0px 10px 0px 3px;
+    &-icons-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: end;
+      margin-right: 15px;
+    }
+
+    .vertical-line {
+      border-left: 1px solid black;
+      margin-bottom: 0px;
+      margin-left: 15px;
+      margin-right: 15px;
+      height: 27px;
+      opacity: 0.2;
     }
 
   }
 
-  .chart-icon-name {
-    padding: 11px 0 11px 8px;
-    // width: 84.5%;
-    width: 125px;
+  .icon-button {
+    background-color: transparent;
+    margin: 0px 3px;
+    user-select: none;
+    text-align: center;
+    font-size: 15px;
+    border: none;
+    height: 26px;
+    width: 26px;
+    padding: 5px;
+    transition-duration: 0.3s;
+    opacity: 0.75;
 
-    .chart-symbol {
-      padding-right: 13px;
+    &:not(:disabled):hover {
+      color: red;
+      height: 26px;
+      width: 26px;
+      background-color: gray;
+      border-radius: 3px;
+      cursor: pointer;
+      opacity: 0.75;
     }
   }
-}
 
-.expand-card {
-  position: absolute;
-  width: 100%;
-  margin: 0px;
-  padding: 0%;
-  top: 0px;
-  height: 100%;
-  z-index: 7;
-}
-.comp-line-chart{
-  position: relative;
-  height: calc(100% - 38px);
-  margin-top: 2px;
-}
-
-.comp-card {
-  position: relative;
-  // width: 100%;
-  height: 98%;
-  margin: 0px 13px 10px 13px;
-
-  &:first-child {
-    margin: 5px 13px 10px 13px;
-  }
-
-  &:last-child {
-    margin: 0px 13px;
-  }
-}
-
-.card-holder {
-  height: calc(100vh - 190px);
-  margin-bottom: 2px;
-  overflow-y: auto;
-  overflow-x: hidden;
-
-  .card {
-    // width: 100%;
-    // height: 98%;
+  .more-container {
     display: flex;
     flex-direction: column;
+    align-items: start;
+    position: fixed;
+    right: 30px;
+    margin-top: 32px;
+    user-select: none;
     background-color: white;
-    border-radius: 8px;
-    border: 0.1px solid #cccccc;
-    // margin: 0px 13px 10px 13px;
+    z-index: 9999;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 
+    .icon {
+      padding: 10px 10px;
+      font-size: small;
+      width: 150px;
+      // width: 86.8%;
 
-    &-head {
-      display: flex;
-      justify-content: space-between;
-      // background-color: white;
-      margin: 10px 18px 0px 18px;
+      &:hover {
+        background-color: rgb(242, 242, 242);
+      }
+
+      .symbol {
+        padding: 0px 10px 0px 3px;
+      }
+
     }
 
-    &-body {
-      flex-grow: 1;
-      overflow: hidden;
-    }
-    &-body-line-chart {
-      flex-grow: 1;
-      margin: 2px 18px 0px;
-    }
+    .chart-icon-name {
+      padding: 11px 0 11px 8px;
+      // width: 84.5%;
+      width: 125px;
 
-    .tab-title {
-      font-size: 17px;
-      font-weight: 600;
-      border: none;
-      height: 24px;
-      // background-color: white;
-      flex-grow: 1;
-    }
-
-    &-body-shimmer {
-      flex-grow: 1;
-      margin: 8px 16px;
-      margin-bottom: 20px;
-      border: 1px solid rgb(204, 204, 204);
+      .chart-symbol {
+        padding-right: 13px;
+      }
     }
   }
-}
 
-.Run-Button {
-  background-color: #0a52ed;
-  align-self: last baseline;
-  color: white;
-  width: 80px;
-  border-radius: 4px;
-  border: none;
-  border-radius: 3px;
-  margin-right: 25px;
-  margin-left: 20px;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 10px;
-  cursor: pointer;
-}
+  .expand-card {
+    position: fixed;
+    width: 100%;
+    margin: 0px;
+    padding: 0%;
+    top: 0px;
+    height: 100%;
+    z-index: 7;
+  }
 
-.Run-Button-container {
-  display: flex;
-  flex-grow: 1;
-  position: absolute;
-  bottom: 30px;
-  right: 12px;
-}
+  .comp-line-chart {
+    position: relative;
+    height: calc(100% - 38px);
+    margin-top: 2px;
+  }
 
-.reportpage-compress {
-  margin-right: 320px;
+  .comp-card {
+    position: relative;
+    // width: 100%;
+    height: 98%;
+    margin: 0px 13px 10px 13px;
+
+    &:first-child {
+      margin: 5px 13px 10px 13px;
+    }
+
+    &:last-child {
+      margin: 0px 13px;
+    }
+  }
+
+  .card-holder {
+    height: calc(100vh - 190px);
+    margin-bottom: 2px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .card {
+      // width: 100%;
+      // height: 98%;
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      border-radius: 8px;
+      border: 0.1px solid #cccccc;
+      // margin: 0px 13px 10px 13px;
+
+
+      &-head {
+        display: flex;
+        justify-content: space-between;
+        // background-color: white;
+        margin: 10px 18px 0px 18px;
+      }
+
+      &-body {
+        flex-grow: 1;
+        overflow-y: hidden;
+      }
+
+      &-body-line-chart {
+        flex-grow: 1;
+        margin: 2px 18px 0px;
+      }
+
+      .tab-title {
+        font-size: 17px;
+        font-weight: 600;
+        border: none;
+        height: 24px;
+        // background-color: white;
+        flex-grow: 1;
+      }
+
+      &-body-shimmer {
+        flex-grow: 1;
+        margin: 8px 16px;
+        margin-bottom: 20px;
+        border: 1px solid rgb(204, 204, 204);
+      }
+    }
+  }
+
+  .Run-Button {
+    background-color: #0a52ed;
+    align-self: last baseline;
+    color: white;
+    width: 80px;
+    border-radius: 4px;
+    border: none;
+    border-radius: 3px;
+    margin-right: 25px;
+    margin-left: 20px;
+    font-weight: 800;
+    font-size: 15px;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .Run-Button-container {
+    display: flex;
+    flex-grow: 1;
+    position: absolute;
+    bottom: 30px;
+    right: 12px;
+  }
+
+  .reportpage-compress {
+    margin-right: 320px;
+  }
 }
 
 ::-webkit-scrollbar {

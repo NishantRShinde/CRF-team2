@@ -44,6 +44,7 @@ export class ReportPageComponent {
     columns: any;
     showActualFact: boolean;
     viewStatus: string;
+    isExpand: boolean;
   }[];
 
   ngOnInit(): void {
@@ -60,6 +61,7 @@ export class ReportPageComponent {
         columns: this.getColumns(false),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       },
     ];
   }
@@ -137,6 +139,7 @@ export class ReportPageComponent {
         columns: this.getColumns(false),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       });
     } else if (type === 'Line chart') {
       this.cardList.push({
@@ -145,6 +148,7 @@ export class ReportPageComponent {
         columns: this.lineChartDataService.createNewChart(),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       });
     }
     this.showChartList = false;
