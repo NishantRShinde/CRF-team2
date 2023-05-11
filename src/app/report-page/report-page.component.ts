@@ -203,6 +203,7 @@ export class ReportPageComponent {
   }
 
   RunButton() {
+    this.sidepanelService.close()
     for (let i of this.cardList) {
       if (!i.showActualFact && i.type==='table') {
         i.showActualFact = true;

@@ -21,4 +21,9 @@ export class SidepanelService {
   getMainKeys(){
     return Object.keys(this.selectedList);
   }
+  close(){
+    this.isSidepanelOpen = false
+    this.addActive = false
+    this.add = ""
+  }
 }
