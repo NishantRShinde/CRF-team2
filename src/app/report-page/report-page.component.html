@@ -35,11 +35,10 @@
 
             </button>
         </div>
-
         <div *ngIf="showChartList" class="more-container"
             [ngStyle]=" {'right': sidepanelService.isSidepanelOpen?'382px': '62px'} ">
-            <div *ngFor="let option of chartOptions; let i = index" class="icon chart-icon">
-                <div (mousedown)="addCard(option.name)">
+            <div *ngFor="let option of chartOptions; let i = index">
+                <div (mousedown)="addCard(option.name)" class="icon chart-icon-name">
                     <span class="symbol chart-symbol">
                         <i class="{{ option.class }}"> </i>
                     </span>
@@ -86,7 +85,7 @@
                 <ag-grid-angular *ngIf="a.type === 'table'" style="width: 100%; height: 100%;" class="ag-theme-alpine"
                     [rowData]="rowData" [columnDefs]=a.columns>
                 </ag-grid-angular>
-                <app-line-chart *ngIf="a.type === 'lineChart'"></app-line-chart>
+                <app-line-chart [lineChart]="a.columns" *ngIf="a.type === 'lineChart'"></app-line-chart>
             </div>
         </div>
     </div>

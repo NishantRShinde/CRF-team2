@@ -9,6 +9,7 @@ import { LinechartDataServiceService } from '../services/linechart-data-service.
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
   styleUrls: ['./report-page.component.scss'],
+  providers: [ShimmerEffectService] 
 })
 export class ReportPageComponent {
   @ViewChild('cardHolder') cardHolder: any;
@@ -103,7 +104,7 @@ export class ReportPageComponent {
     public openDatasetSelectorService: OpenDatasetSelectorService,
     public shimmerService: ShimmerEffectService,
     public sidepanelService: SidepanelService,
-    public lineChartDataService:LinechartDataServiceService,
+    public lineChartDataService: LinechartDataServiceService
   ) {}
 
   headerMoreOptions = [
@@ -123,7 +124,6 @@ export class ReportPageComponent {
   //   { field: 'model' },
   //   { field: 'price', valueFormatter: this.valFormatter.bind(this), },
   // ];
-
   showBottomBar = false;
   addCard(type: string): void {
     let listLength = this.cardList.length + 1;
@@ -142,7 +142,7 @@ export class ReportPageComponent {
       this.cardList.push({
         type: 'lineChart',
         title: 'Chart-' + listLength.toString(),
-        columns: this.getColumns(false),
+        columns: this.lineChartDataService.createNewChart(),
         showActualFact: false,
         viewStatus: 'preview',
       });
@@ -155,7 +155,7 @@ export class ReportPageComponent {
   }
 
   showRunButton: boolean = true;
-
+  clickedCancelButton: boolean = false;
   undoClick() {
     this.redo = this.reportTitle;
     this.reportTitle = this.undo;
@@ -205,36 +205,40 @@ export class ReportPageComponent {
   RunButton() {
     this.sidepanelService.close()
     for (let i of this.cardList) {
-      if (!i.showActualFact && i.type==='table') {
+      if (!i.showActualFact && i.type === 'table') {
         i.showActualFact = true;
         i.columns = this.getColumns(true);
         i.viewStatus = 'running';
-      }
-      else if (!i.showActualFact && i.type==='lineChart' ){
-        i.showActualFact = true; 
+      } else if (!i.showActualFact && i.type === 'lineChart') {
+        i.showActualFact = true;
         i.viewStatus = 'running';
-        this.lineChartDataService.renderLineChart()
-        
-      } 
-      else {
+        i.columns = this.lineChartDataService.renderLineChart();
+      } else {
         i.viewStatus = 'actual';
       }
-      this.shimmerService.shimmerEffect();   
-     }
-    
+      this.shimmerService.shimmerEffect();
+    }
+
     this.showRunButton = false;
     this.showBottomBar = true;
-
   }
   cancelButton() {
     this.showBottomBar = false;
     this.showRunButton = true;
+    this.clickedCancelButton = true;
     for (let i of this.cardList) {
       if (i.viewStatus === 'running') {
         i.viewStatus = 'preview';
         i.showActualFact = false;
-        i.columns = this.getColumns(false);
+        if(i.type==='table'){
+          i.columns = this.getColumns(false);
+        }else if(i.type==='lineChart'){
+        i.columns= this.lineChartDataService.createNewChart();
+        }
+        
       }
-    }
+    } 
+    this.shimmerService.cancelShimmerEffect();
   }
 }
+
