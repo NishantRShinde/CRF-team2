@@ -1,17 +1,13 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { LinechartDataServiceService } from '../services/linechart-data-service.service';
 import { Chart } from 'highcharts';
-
 
 @Component({
   selector: 'app-line-chart',
   templateUrl: './line-chart.component.html',
   styleUrls: ['./line-chart.component.scss'],
 })
-export class LineChartComponent implements OnInit {
+export class LineChartComponent {
   @Input() lineChart: any;
   constructor(public lineChartDataService: LinechartDataServiceService) {}
-  ngOnInit(): void {}
-
-  showActualData() {}
 }
