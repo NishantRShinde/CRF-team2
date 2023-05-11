@@ -9,7 +9,7 @@ import { LinechartDataServiceService } from '../services/linechart-data-service.
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
   styleUrls: ['./report-page.component.scss'],
-  providers: [ShimmerEffectService] 
+  providers: [ShimmerEffectService],
 })
 export class ReportPageComponent {
   @ViewChild('cardHolder') cardHolder: any;
@@ -146,7 +146,6 @@ export class ReportPageComponent {
         showActualFact: false,
         viewStatus: 'preview',
       });
-      this.lineChartDataService.createNewChart();
     }
     this.showChartList = false;
     setTimeout(() => {
@@ -204,7 +203,7 @@ export class ReportPageComponent {
   }
 
   RunButton() {
-    this.sidepanelService.close()
+    this.sidepanelService.close();
     for (let i of this.cardList) {
       if (!i.showActualFact && i.type === 'table') {
         i.showActualFact = true;
@@ -237,8 +236,7 @@ export class ReportPageComponent {
           i.columns = this.lineChartDataService.createNewChart();
         }
       }
-    } 
+    }
     this.shimmerService.cancelShimmerEffect();
   }
 }
-
