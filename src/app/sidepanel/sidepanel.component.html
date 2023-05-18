@@ -16,7 +16,8 @@
             <div *ngIf="!sidepanelService.addActive" class="heading content-div">
                 <p><i class="fa fa-angle-down"></i> Selection</p><i class="fa fa-bars"></i>
             </div>
-            <div *ngIf="sidepanelService.currentSelected ==='Products'" class="selected-div">
+            {{trueCount()}}
+            <div *ngIf="sidepanelService.currentSelected ==='Products'" [ngClass]="{'selected-div':count == 0?false:true}">
                 <div class="products-div">
                     <div *ngFor="let select of sidepanelService.getKeys(sidepanelService.currentSelected)" >
                         <div *ngIf="sidepanelService.selectedList[sidepanelService.currentSelected][1][select]" class="selected-elements">
