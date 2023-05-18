@@ -22,7 +22,6 @@ export class SidepanelComponent {
     this.http.get('../../assets/Json/content.json').subscribe((res)=>{
       this.content = res; 
     });
-
     for (let select of this.sidepanelService.getKeys('Products')) {
         
       if (this.sidepanelService.selectedList['Products'][1][select] === true) {

@@ -1,6 +1,6 @@
-<br>
+<!-- <br> -->
 <app-sidepanel *ngIf="sidepanelService.isSidepanelOpen" class="sidebar"></app-sidepanel>
-<div *ngIf="shimmerService.isloading" style="height: 10px; margin-left: 6px; margin-bottom: 20px;">
+<div *ngIf="shimmerService.isloading" style="height: 10px; margin: 12px 0px 8px 6px; margin-left: 6px; margin-bottom: 20px;">
   <ngx-skeleton-loader
     [theme]="{ 'height': '100%', 'width': '30vw', 'margin-left':'10px', 'background-color': 'rgb(204,204,204)','border-radius':'20px' }"
     count="1" appearance="line"></ngx-skeleton-loader>
@@ -13,5 +13,5 @@
       <strong class="openbtn" (click)="openSidepanel(item)" [ngClass]="{'alert':this.count===0? true : false,'selected':(item == sidepanelService.currentSelected || item == sidepanelService.add) && sidepanelService.isSidepanelOpen}">{{showSelected}} 
         <i [ngClass]="{'fa-solid fa-circle-exclamation fa-rotate-180':this.count===0? true : false}" ></i></strong></div>
   </div>
-  <br><br>
+  <!-- <br><br> -->
 </div>

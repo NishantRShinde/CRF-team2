@@ -2,7 +2,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 
-<div *ngIf="openDatasetSelectorService.isDataApplied"
+<div class="report-page" *ngIf="openDatasetSelectorService.isDataApplied"
     [ngClass]="{'reportpage-compress': sidepanelService.isSidepanelOpen}">
     <div class="page-header">
         <div>
@@ -63,11 +63,12 @@
     <app-data-summary></app-data-summary>
 
     <div #cardHolder class="card-holder">
-        <div class="card" *ngFor="let a of cardList" [ngClass]="{'expand-card': expandCard, 'comp-card': !expandCard}">
+        <div class="card" *ngFor="let a of cardList" [ngClass]="{'expand-card': a.isExpand, 'comp-card': !a.isExpand}">
             <div class="card-head">
                 <input class="tab-title" type="text" [value]='a.title' />
                 <div class="card-icons">
-                    <button type="button" class="icon-button" (click)="expandCard = !expandCard">
+                    <button type="button" class="icon-button"
+                        (click)="a.isExpand = !a.isExpand; expandCard = !expandCard">
                         <i class="fa fa-arrows-alt" style="transform: rotate(45deg)"></i>
                     </button>
                     <button type="button" class="icon-button">

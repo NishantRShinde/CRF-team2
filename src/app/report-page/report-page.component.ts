@@ -9,7 +9,7 @@ import { LinechartDataServiceService } from '../services/linechart-data-service.
   selector: 'app-report-page',
   templateUrl: './report-page.component.html',
   styleUrls: ['./report-page.component.scss'],
-  providers: [ShimmerEffectService] 
+  providers: [ShimmerEffectService],
 })
 export class ReportPageComponent {
   @ViewChild('cardHolder') cardHolder: any;
@@ -44,6 +44,7 @@ export class ReportPageComponent {
     columns: any;
     showActualFact: boolean;
     viewStatus: string;
+    isExpand: boolean;
   }[];
 
   ngOnInit(): void {
@@ -60,6 +61,7 @@ export class ReportPageComponent {
         columns: this.getColumns(false),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       },
     ];
   }
@@ -137,6 +139,7 @@ export class ReportPageComponent {
         columns: this.getColumns(false),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       });
     } else if (type === 'Line chart') {
       this.cardList.push({
@@ -145,6 +148,7 @@ export class ReportPageComponent {
         columns: this.lineChartDataService.createNewChart(),
         showActualFact: false,
         viewStatus: 'preview',
+        isExpand: false,
       });
     }
     this.showChartList = false;
@@ -203,7 +207,7 @@ export class ReportPageComponent {
   }
 
   RunButton() {
-    this.sidepanelService.close()
+    this.sidepanelService.close();
     for (let i of this.cardList) {
       if (!i.showActualFact && i.type === 'table') {
         i.showActualFact = true;
@@ -230,15 +234,13 @@ export class ReportPageComponent {
       if (i.viewStatus === 'running') {
         i.viewStatus = 'preview';
         i.showActualFact = false;
-        if(i.type==='table'){
+        if (i.type === 'table') {
           i.columns = this.getColumns(false);
-        }else if(i.type==='lineChart'){
-        i.columns= this.lineChartDataService.createNewChart();
+        } else if (i.type === 'lineChart') {
+          i.columns = this.lineChartDataService.createNewChart();
         }
-        
       }
-    } 
+    }
     this.shimmerService.cancelShimmerEffect();
   }
 }
-
