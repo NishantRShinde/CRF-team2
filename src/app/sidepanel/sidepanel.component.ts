@@ -11,7 +11,6 @@ export class SidepanelComponent {
 
   content: any
   trueSelectCount: number = 0;
-  trueCountZero: boolean = false
   constructor(public sidepanelService : SidepanelService,
     public http: HttpClient
     ){
